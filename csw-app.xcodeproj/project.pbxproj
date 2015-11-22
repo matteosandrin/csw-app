@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		5713F8258C2BA1BBE91487B8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F33E246687C1E5A337219E41 /* libPods.a */; };
+		EC000AD51BFBBC7E00DEF4D0 /* CSWRosterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC000AD41BFBBC7E00DEF4D0 /* CSWRosterTableViewCell.xib */; };
+		EC000AD81BFBBC9B00DEF4D0 /* CSWRosterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC000AD71BFBBC9B00DEF4D0 /* CSWRosterTableViewCell.m */; };
+		EC000ADE1BFBC7EE00DEF4D0 /* defaultThumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC000ADD1BFBC7EE00DEF4D0 /* defaultThumb@2x.png */; };
+		EC09F2FD1BE16538005B5DAB /* CSWAssignmentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC09F2FC1BE16538005B5DAB /* CSWAssignmentDetailViewController.m */; };
+		EC1ECAE31BE040F7002E4BA4 /* CSWAssignmentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC1ECAE21BE040F7002E4BA4 /* CSWAssignmentsTableViewCell.xib */; };
+		EC1ECAE61BE0410A002E4BA4 /* CSWAssignmentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1ECAE51BE0410A002E4BA4 /* CSWAssignmentsTableViewCell.m */; };
 		EC400FE11BD89D0000ECC31B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC400FE01BD89D0000ECC31B /* main.m */; };
 		EC400FE41BD89D0000ECC31B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC400FE31BD89D0000ECC31B /* AppDelegate.m */; };
 		EC400FEA1BD89D0000ECC31B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC400FE81BD89D0000ECC31B /* Main.storyboard */; };
@@ -24,6 +30,16 @@
 		EC4010281BD89DCC00ECC31B /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = EC40101E1BD89DCC00ECC31B /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EC4010291BD89DCC00ECC31B /* login_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC40101F1BD89DCC00ECC31B /* login_icon@2x.png */; };
 		EC40102A1BD89DCC00ECC31B /* SF-UI-Display-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC4010201BD89DCC00ECC31B /* SF-UI-Display-Light.ttf */; };
+		EC716E1C1C01001F00D12519 /* CSWMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC716E1B1C01001F00D12519 /* CSWMainTabBarViewController.m */; };
+		EC77D15D1BDC3D8F00561959 /* scheduleTabButtonSelected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC77D15B1BDC3D8F00561959 /* scheduleTabButtonSelected@3x.png */; };
+		EC77D15E1BDC3D8F00561959 /* scheduleTabButtonNormal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC77D15C1BDC3D8F00561959 /* scheduleTabButtonNormal@3x.png */; };
+		EC77D1611BDC41EE00561959 /* assignmentsTabButtonSelected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC77D15F1BDC41EE00561959 /* assignmentsTabButtonSelected@3x.png */; };
+		EC77D1621BDC41EE00561959 /* assignmentsTabButtonNormal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC77D1601BDC41EE00561959 /* assignmentsTabButtonNormal@3x.png */; };
+		EC77D1651BDC445C00561959 /* CSWAssignmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC77D1641BDC445C00561959 /* CSWAssignmentsViewController.m */; };
+		EC8EF8801BFA805400516078 /* CSWRosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8EF87F1BFA805400516078 /* CSWRosterViewController.m */; };
+		ECADDDCE1BEF089100B1235C /* CSWClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECADDDCD1BEF089100B1235C /* CSWClassViewController.m */; };
+		ECD1BA441BDD45AF00193FC0 /* icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD1BA431BDD45AF00193FC0 /* icon@3x.png */; };
+		ECD1BA461BDD467400193FC0 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD1BA451BDD467400193FC0 /* icon@2x.png */; };
 		ECF40B1E1BD9365800CF3612 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = ECF40B1D1BD9365800CF3612 /* splash.png */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +63,15 @@
 /* Begin PBXFileReference section */
 		B3598466DF2F0175804330EC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C67594A747365F4D820ADCD7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EC000AD41BFBBC7E00DEF4D0 /* CSWRosterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSWRosterTableViewCell.xib; sourceTree = "<group>"; };
+		EC000AD61BFBBC9B00DEF4D0 /* CSWRosterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWRosterTableViewCell.h; sourceTree = "<group>"; };
+		EC000AD71BFBBC9B00DEF4D0 /* CSWRosterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWRosterTableViewCell.m; sourceTree = "<group>"; };
+		EC000ADD1BFBC7EE00DEF4D0 /* defaultThumb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultThumb@2x.png"; sourceTree = "<group>"; };
+		EC09F2FB1BE16538005B5DAB /* CSWAssignmentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWAssignmentDetailViewController.h; sourceTree = "<group>"; };
+		EC09F2FC1BE16538005B5DAB /* CSWAssignmentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWAssignmentDetailViewController.m; sourceTree = "<group>"; };
+		EC1ECAE21BE040F7002E4BA4 /* CSWAssignmentsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSWAssignmentsTableViewCell.xib; sourceTree = "<group>"; };
+		EC1ECAE41BE0410A002E4BA4 /* CSWAssignmentsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWAssignmentsTableViewCell.h; sourceTree = "<group>"; };
+		EC1ECAE51BE0410A002E4BA4 /* CSWAssignmentsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWAssignmentsTableViewCell.m; sourceTree = "<group>"; };
 		EC400FDC1BD89D0000ECC31B /* csw-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "csw-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC400FE01BD89D0000ECC31B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EC400FE21BD89D0000ECC31B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -76,6 +101,20 @@
 		EC40101E1BD89DCC00ECC31B /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		EC40101F1BD89DCC00ECC31B /* login_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_icon@2x.png"; sourceTree = "<group>"; };
 		EC4010201BD89DCC00ECC31B /* SF-UI-Display-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Light.ttf"; sourceTree = "<group>"; };
+		EC716E1A1C01001F00D12519 /* CSWMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWMainTabBarViewController.h; sourceTree = "<group>"; };
+		EC716E1B1C01001F00D12519 /* CSWMainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWMainTabBarViewController.m; sourceTree = "<group>"; };
+		EC77D15B1BDC3D8F00561959 /* scheduleTabButtonSelected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scheduleTabButtonSelected@3x.png"; sourceTree = "<group>"; };
+		EC77D15C1BDC3D8F00561959 /* scheduleTabButtonNormal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scheduleTabButtonNormal@3x.png"; sourceTree = "<group>"; };
+		EC77D15F1BDC41EE00561959 /* assignmentsTabButtonSelected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "assignmentsTabButtonSelected@3x.png"; sourceTree = "<group>"; };
+		EC77D1601BDC41EE00561959 /* assignmentsTabButtonNormal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "assignmentsTabButtonNormal@3x.png"; sourceTree = "<group>"; };
+		EC77D1631BDC445C00561959 /* CSWAssignmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWAssignmentsViewController.h; sourceTree = "<group>"; };
+		EC77D1641BDC445C00561959 /* CSWAssignmentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWAssignmentsViewController.m; sourceTree = "<group>"; };
+		EC8EF87E1BFA805400516078 /* CSWRosterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWRosterViewController.h; sourceTree = "<group>"; };
+		EC8EF87F1BFA805400516078 /* CSWRosterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWRosterViewController.m; sourceTree = "<group>"; };
+		ECADDDCC1BEF089100B1235C /* CSWClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWClassViewController.h; sourceTree = "<group>"; };
+		ECADDDCD1BEF089100B1235C /* CSWClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWClassViewController.m; sourceTree = "<group>"; };
+		ECD1BA431BDD45AF00193FC0 /* icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@3x.png"; sourceTree = "<group>"; };
+		ECD1BA451BDD467400193FC0 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		ECF40B1D1BD9365800CF3612 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		F33E246687C1E5A337219E41 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -121,6 +160,45 @@
 				B3598466DF2F0175804330EC /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		EC000AD91BFBBCA800DEF4D0 /* Main UI */ = {
+			isa = PBXGroup;
+			children = (
+				EC400FE81BD89D0000ECC31B /* Main.storyboard */,
+				EC400FED1BD89D0000ECC31B /* LaunchScreen.storyboard */,
+			);
+			name = "Main UI";
+			sourceTree = "<group>";
+		};
+		EC000ADA1BFBBCC300DEF4D0 /* Schedule Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EC4010181BD89DCC00ECC31B /* CSWScheduleCell.xib */,
+				EC4010191BD89DCC00ECC31B /* CSWScheduleTableViewCell.h */,
+				EC40101A1BD89DCC00ECC31B /* CSWScheduleTableViewCell.m */,
+			);
+			name = "Schedule Cell";
+			sourceTree = "<group>";
+		};
+		EC000ADB1BFBBCD000DEF4D0 /* Assignments Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EC1ECAE21BE040F7002E4BA4 /* CSWAssignmentsTableViewCell.xib */,
+				EC1ECAE41BE0410A002E4BA4 /* CSWAssignmentsTableViewCell.h */,
+				EC1ECAE51BE0410A002E4BA4 /* CSWAssignmentsTableViewCell.m */,
+			);
+			name = "Assignments Cell";
+			sourceTree = "<group>";
+		};
+		EC000ADC1BFBBCDD00DEF4D0 /* Roster Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EC000AD41BFBBC7E00DEF4D0 /* CSWRosterTableViewCell.xib */,
+				EC000AD61BFBBC9B00DEF4D0 /* CSWRosterTableViewCell.h */,
+				EC000AD71BFBBC9B00DEF4D0 /* CSWRosterTableViewCell.m */,
+			);
+			name = "Roster Cell";
 			sourceTree = "<group>";
 		};
 		EC400FD31BD89CFF00ECC31B = {
@@ -192,12 +270,14 @@
 		EC40102C1BD89DD700ECC31B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EC4010121BD89DCC00ECC31B /* CSWIntroViewController.h */,
-				EC4010131BD89DCC00ECC31B /* CSWIntroViewController.m */,
-				EC4010141BD89DCC00ECC31B /* CSWLoginViewController.h */,
-				EC4010151BD89DCC00ECC31B /* CSWLoginViewController.m */,
-				EC40101B1BD89DCC00ECC31B /* CSWScheduleViewController.h */,
-				EC40101C1BD89DCC00ECC31B /* CSWScheduleViewController.m */,
+				EC716E161C00FF9800D12519 /* Intro */,
+				EC716E171C00FFA300D12519 /* Login */,
+				EC716E181C00FFAD00D12519 /* Schedule */,
+				EC716E191C00FFBF00D12519 /* Schedule */,
+				EC8EF87E1BFA805400516078 /* CSWRosterViewController.h */,
+				EC8EF87F1BFA805400516078 /* CSWRosterViewController.m */,
+				EC716E1A1C01001F00D12519 /* CSWMainTabBarViewController.h */,
+				EC716E1B1C01001F00D12519 /* CSWMainTabBarViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -205,11 +285,10 @@
 		EC40102D1BD89DEF00ECC31B /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				EC4010181BD89DCC00ECC31B /* CSWScheduleCell.xib */,
-				EC4010191BD89DCC00ECC31B /* CSWScheduleTableViewCell.h */,
-				EC40101A1BD89DCC00ECC31B /* CSWScheduleTableViewCell.m */,
-				EC400FE81BD89D0000ECC31B /* Main.storyboard */,
-				EC400FED1BD89D0000ECC31B /* LaunchScreen.storyboard */,
+				EC000AD91BFBBCA800DEF4D0 /* Main UI */,
+				EC000ADA1BFBBCC300DEF4D0 /* Schedule Cell */,
+				EC000ADB1BFBBCD000DEF4D0 /* Assignments Cell */,
+				EC000ADC1BFBBCDD00DEF4D0 /* Roster Cell */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -217,12 +296,59 @@
 		EC40102E1BD89E0A00ECC31B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				EC000ADD1BFBC7EE00DEF4D0 /* defaultThumb@2x.png */,
+				ECD1BA451BDD467400193FC0 /* icon@2x.png */,
+				ECD1BA431BDD45AF00193FC0 /* icon@3x.png */,
+				EC77D15F1BDC41EE00561959 /* assignmentsTabButtonSelected@3x.png */,
+				EC77D1601BDC41EE00561959 /* assignmentsTabButtonNormal@3x.png */,
+				EC77D15B1BDC3D8F00561959 /* scheduleTabButtonSelected@3x.png */,
+				EC77D15C1BDC3D8F00561959 /* scheduleTabButtonNormal@3x.png */,
 				ECF40B1D1BD9365800CF3612 /* splash.png */,
 				EC40101F1BD89DCC00ECC31B /* login_icon@2x.png */,
 				EC4010201BD89DCC00ECC31B /* SF-UI-Display-Light.ttf */,
 				EC400FEB1BD89D0000ECC31B /* Assets.xcassets */,
 			);
 			name = Assets;
+			sourceTree = "<group>";
+		};
+		EC716E161C00FF9800D12519 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				EC4010121BD89DCC00ECC31B /* CSWIntroViewController.h */,
+				EC4010131BD89DCC00ECC31B /* CSWIntroViewController.m */,
+			);
+			name = Intro;
+			sourceTree = "<group>";
+		};
+		EC716E171C00FFA300D12519 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EC4010141BD89DCC00ECC31B /* CSWLoginViewController.h */,
+				EC4010151BD89DCC00ECC31B /* CSWLoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		EC716E181C00FFAD00D12519 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				EC40101B1BD89DCC00ECC31B /* CSWScheduleViewController.h */,
+				EC40101C1BD89DCC00ECC31B /* CSWScheduleViewController.m */,
+				ECADDDCC1BEF089100B1235C /* CSWClassViewController.h */,
+				ECADDDCD1BEF089100B1235C /* CSWClassViewController.m */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
+		EC716E191C00FFBF00D12519 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				EC77D1631BDC445C00561959 /* CSWAssignmentsViewController.h */,
+				EC77D1641BDC445C00561959 /* CSWAssignmentsViewController.m */,
+				EC09F2FB1BE16538005B5DAB /* CSWAssignmentDetailViewController.h */,
+				EC09F2FC1BE16538005B5DAB /* CSWAssignmentDetailViewController.m */,
+			);
+			name = Schedule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,13 +459,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC000AD51BFBBC7E00DEF4D0 /* CSWRosterTableViewCell.xib in Resources */,
+				EC77D15E1BDC3D8F00561959 /* scheduleTabButtonNormal@3x.png in Resources */,
+				EC77D1611BDC41EE00561959 /* assignmentsTabButtonSelected@3x.png in Resources */,
+				EC77D1621BDC41EE00561959 /* assignmentsTabButtonNormal@3x.png in Resources */,
 				EC400FEF1BD89D0000ECC31B /* LaunchScreen.storyboard in Resources */,
+				EC000ADE1BFBC7EE00DEF4D0 /* defaultThumb@2x.png in Resources */,
+				EC1ECAE31BE040F7002E4BA4 /* CSWAssignmentsTableViewCell.xib in Resources */,
+				EC77D15D1BDC3D8F00561959 /* scheduleTabButtonSelected@3x.png in Resources */,
 				ECF40B1E1BD9365800CF3612 /* splash.png in Resources */,
 				EC4010291BD89DCC00ECC31B /* login_icon@2x.png in Resources */,
 				EC400FEC1BD89D0000ECC31B /* Assets.xcassets in Resources */,
+				ECD1BA441BDD45AF00193FC0 /* icon@3x.png in Resources */,
 				EC4010251BD89DCC00ECC31B /* CSWScheduleCell.xib in Resources */,
 				EC400FEA1BD89D0000ECC31B /* Main.storyboard in Resources */,
 				EC40102A1BD89DCC00ECC31B /* SF-UI-Display-Light.ttf in Resources */,
+				ECD1BA461BDD467400193FC0 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,11 +534,18 @@
 			files = (
 				EC4010241BD89DCC00ECC31B /* CSWManager.m in Sources */,
 				EC400FE41BD89D0000ECC31B /* AppDelegate.m in Sources */,
+				EC77D1651BDC445C00561959 /* CSWAssignmentsViewController.m in Sources */,
 				EC4010261BD89DCC00ECC31B /* CSWScheduleTableViewCell.m in Sources */,
 				EC400FE11BD89D0000ECC31B /* main.m in Sources */,
+				ECADDDCE1BEF089100B1235C /* CSWClassViewController.m in Sources */,
+				EC09F2FD1BE16538005B5DAB /* CSWAssignmentDetailViewController.m in Sources */,
 				EC4010231BD89DCC00ECC31B /* CSWLoginViewController.m in Sources */,
+				EC716E1C1C01001F00D12519 /* CSWMainTabBarViewController.m in Sources */,
+				EC000AD81BFBBC9B00DEF4D0 /* CSWRosterTableViewCell.m in Sources */,
+				EC8EF8801BFA805400516078 /* CSWRosterViewController.m in Sources */,
 				EC4010221BD89DCC00ECC31B /* CSWIntroViewController.m in Sources */,
 				EC4010271BD89DCC00ECC31B /* CSWScheduleViewController.m in Sources */,
+				EC1ECAE61BE0410A002E4BA4 /* CSWAssignmentsTableViewCell.m in Sources */,
 				EC4010281BD89DCC00ECC31B /* KeychainItemWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,8 @@
 #import "CSWScheduleTableViewCell.h"
 #import "FlatUIKit.h"
 #import "ActionSheetDatePicker.h"
+#import "ActionSheetStringPicker.h"
+#import "CSWClassViewController.h"
 
 @interface CSWScheduleViewController : UITableViewController <UITableViewDelegate,UITableViewDataSource>
 

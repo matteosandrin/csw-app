@@ -1,4 +1,4 @@
-pod "AFNetworking", "~> 2.0"
+pod 'AFNetworking','~> 2.0'
 pod 'FlatUIKit'
 pod 'CBZSplashView', '~> 1.0.0'
 pod 'AMSmoothAlert', '~> 1.0'

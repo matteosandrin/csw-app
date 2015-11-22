@@ -68,7 +68,7 @@
     
 }
 
--(void) loginWithUsername:(NSString*)username andPassword:(NSString*)password andCompletion:(BoolResponseBlock)completionBlock{
+-(void) loginWithUsername:(NSString*)username andPassword:(NSString*)password andCompletion:(ArrayResponseBlock)completionBlock{
     
     NSDictionary *params = @{
                             @"Username":username,
@@ -100,14 +100,15 @@
               
               if (completionBlock) {
                   NSLog(@"what");
-                  completionBlock(![status boolValue]);
+                  completionBlock(@[[NSNumber numberWithBool:![status boolValue]]]);
               }
               
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               if (completionBlock) {
-                  completionBlock(false);
+                  completionBlock(@[error.localizedDescription]);
               }
+              NSLog(@"faillogin");
           }];
 
     
@@ -174,6 +175,146 @@
               }
           }];
     
+}
+
+-(void) getAssignmentsSummaryForDueDate:(NSDate *)dueDate withCompletion:(ArrayResponseBlock)completionBlock {
+    
+    NSString *url = [NSString stringWithFormat:@"%@/api/DataDirect/AssignmentCenterAssignments",kBaseLink];
+    
+    NSLog(@"%@",url);
+    
+//    NSCalendar *calendar = [NSCalendar currentCalendar];
+//    
+//    NSDateComponents* comp = [calendar components:NSCalendarUnitWeekday fromDate:[NSDate date]];
+//    
+//    int todayWeek = [comp weekday];
+//    int add = 1;
+//    
+//    switch (todayWeek) {
+//        case 6:
+//            add = 3;
+//            break;
+//        case 7:
+//            add = 2;
+//            break;
+//    }
+//    
+//    NSDate *tomorrow = [calendar dateByAddingUnit:NSCalendarUnitDay
+//                                             value:add
+//                                            toDate:[NSDate date]
+//                                           options:kNilOptions];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd/yyyy"];
+    
+    NSString *stringFromDate = [formatter stringFromDate:dueDate];
+    
+    NSDictionary *params = @{
+                             @"persona": @"2",
+                             @"format" : @"json",
+                             @"filter" : @"1",
+                             @"dateStart" : stringFromDate,
+                             @"dateEnd" : stringFromDate,
+                             @"statusList" : @"",
+                             @"sectionList" : @""
+                             };
+    
+
+    
+    [manager GET:url
+      parameters:params
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             NSLog(@"success");
+             NSArray *result = (NSArray*)responseObject;
+             NSLog(@"%@",responseObject);
+             NSLog(@"%@",operation.request.URL);
+             completionBlock(result);
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"failure: %@",error.localizedDescription);
+             if (completionBlock) {
+                 completionBlock(@[error.localizedDescription]);
+             }
+//             NSLog(@"%@",operation.responseString);
+         }];
+    
+}
+
+-(void) getClassDetailWithId:(NSString *)idNumber andCompletion:(ArrayResponseBlock)completionBlock {
+    
+    NSString *url = [NSString stringWithFormat:@"%@/api/datadirect/SectionInfoView",kBaseLink];
+    
+    NSLog(@"%@",url);
+    
+    NSDictionary *params = @{
+                             @"associationId": @"1",
+                             @"sectionId": idNumber
+                             };
+    
+    [manager GET:url
+      parameters:params
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             NSLog(@"success");
+             NSArray *result = (NSArray*)responseObject;
+             NSLog(@"%@",responseObject);
+             completionBlock(result);
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"failure: %@",error.localizedDescription);
+             if (completionBlock) {
+                 completionBlock(@[error.localizedDescription]);
+             }
+         }];
+    
+}
+
+-(void) getRosterForClassWithId:(NSString *)idNumber andCompletion:(ArrayResponseBlock)completionBlock {
+    
+    NSString *url = [NSString stringWithFormat:@"%@/api/datadirect/sectionrosterget/%@/",kBaseLink,idNumber];
+    
+    NSLog(@"%@",url);
+    
+    [manager GET:url
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             NSLog(@"success");
+             NSArray *result = (NSArray*)responseObject;
+             NSLog(@"%@",responseObject);
+             completionBlock(result);
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"failure: %@",error.localizedDescription);
+             if (completionBlock) {
+                 completionBlock(@[error.localizedDescription]);
+             }
+         }];
+    
+}
+
+-(void) getThumbWithURL:(NSString*)url andCompletion:(ImageResponseBlock)completionBlock{
+    
+    url = [[NSString stringWithFormat:@"%@/ftpimages/424/user/%@",kBaseLink,url] stringByReplacingOccurrencesOfString:@"thumb_user_" withString:@"large_user_"];
+    NSLog(@"image url: %@",url);
+    
+    AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+    requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
+    [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Response: %@", responseObject);
+        completionBlock(responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Image error: %@", error);
+        NSLog(@"failure: %@",error.localizedDescription);
+        if (completionBlock) {
+            completionBlock(nil);
+        }
+    }];
+    [requestOperation start];
 }
 
 

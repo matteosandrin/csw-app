@@ -127,18 +127,35 @@
     
     [manager loginWithUsername:username
                    andPassword:password
-                 andCompletion:^(BOOL status){
+                 andCompletion:^(NSArray *array){
                      
-                     if (status) {
+                     if ([array[0] isKindOfClass:[NSNumber class]]) {
+                         BOOL status = [array[0] boolValue];
+                         if (status) {
+                             [self performSelectorOnMainThread:@selector(pushToTab) withObject:nil waitUntilDone:false];
+                         }else{
+                             AMSmoothAlertView *alert = [[AMSmoothAlertView alloc] initDropAlertWithTitle:@"Whoops!" andText:@"It seems like either your Username or Password are wrong." andCancelButton:false forAlertType:AlertFailure andColor:[UIColor darkCSWBlueColor]];
+                             [alert setCornerRadius:15];
+                             [alert setTextFont:[UIFont sanFranciscoFontWithSize:12]];
+                             [alert show];
+                             [self.logInButton setEnabled:YES];
+                             [myIndicator removeFromSuperview];
+                         }
+                     }else if ([array[0] isKindOfClass:[NSString class]]){
+                         
                          [self performSelectorOnMainThread:@selector(pushToTab) withObject:nil waitUntilDone:false];
-                     }else{
-                         AMSmoothAlertView *alert = [[AMSmoothAlertView alloc] initDropAlertWithTitle:@"Whoops!" andText:@"It seems like either your Username or Password are wrong." andCancelButton:false forAlertType:AlertFailure andColor:[UIColor darkCSWBlueColor]];
+                         
+                         AMSmoothAlertView *alert = [[AMSmoothAlertView alloc] initDropAlertWithTitle:@"Whoops!" andText:array[0] andCancelButton:false forAlertType:AlertFailure andColor:[UIColor darkCSWBlueColor]];
                          [alert setCornerRadius:15];
                          [alert setTextFont:[UIFont sanFranciscoFontWithSize:12]];
                          [alert show];
                          [self.logInButton setEnabled:YES];
                          [myIndicator removeFromSuperview];
+                         
+                         
                      }
+                     
+                     
                      
                  }];
     

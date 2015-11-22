@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CSWManager.h"
 #import "FlatUIKit.h"
+#import "AMSmoothAlertView.h"
 
 @interface CSWIntroViewController : UIViewController
 

@@ -49,6 +49,11 @@
         place = cellData[@"BuildingName"];
     }
     
+    if ([place rangeOfString:@"Garthwaite"].location != NSNotFound) {
+        NSArray *arr = [place componentsSeparatedByString:@","];
+        place = [NSString stringWithFormat:@"Garthwaite,%@",[arr lastObject]];
+    }
+    
     self.placeLabel.text = place;
     
     self.baseCellView.layer.shadowRadius = 5;
@@ -57,8 +62,22 @@
     
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
+{
+    if (highlighted) {
+        [self setBackgroundColor:[UIColor lightCSWBlueColor]];
+    } else {
+        [self setBackgroundColor:[UIColor whiteColor]];
+    }
+}
+
+-(void) setSelected:(BOOL)selected animated:(BOOL)animated {
+    
+    if (selected) {
+        [self setBackgroundColor:[UIColor lightCSWBlueColor]];
+    } else {
+        [self setBackgroundColor:[UIColor whiteColor]];
+    }
 }
 
 @end

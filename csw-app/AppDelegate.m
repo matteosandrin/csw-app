@@ -21,6 +21,7 @@
     [UIBarButtonItem configureFlatButtonsWithColor:[UIColor darkCSWBlueColor]
                                   highlightedColor:[UIColor cloudsColor]
                                       cornerRadius:3];
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     
     return YES;
 }
