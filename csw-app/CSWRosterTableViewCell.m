@@ -54,7 +54,7 @@
     self.userThumbImageView.layer.shadowRadius = 2;
     self.userThumbImageView.layer.shadowOpacity = 0.5;
     self.userThumbImageView.layer.shadowOffset = CGSizeMake(1, 1);
-    self.userThumbImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.userThumbImageView.layer.borderColor = [UIColor darkCSWBlueColor].CGColor;
     self.userThumbImageView.layer.borderWidth = 2.0f;
     [self.userThumbImageView setImage:image];
     

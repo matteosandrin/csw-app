@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "FlatUIKit.h"
+#import "CSWManager.h"
+#import "CSWIntroViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

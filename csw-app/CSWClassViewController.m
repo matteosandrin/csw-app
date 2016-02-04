@@ -47,7 +47,6 @@
         
         
     }];
-    [self setupUI];
     
 }
 
@@ -91,7 +90,7 @@
     self.descriptionTextView.textContainerInset = (UIEdgeInsets){ .left = 15, .right = 15, .top = 20, .bottom = 5 };
     self.descriptionTextView.attributedText = attributedString;
     
-    NSLog(@"desc: %@",attributedString);
+//    NSLog(@"desc: %@",attributedString);
     
     self.rosterButton.cornerRadius = 10.0f;
     self.rosterButton.shadowHeight = 3.0f;
@@ -105,6 +104,7 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:true];
+//    [self setupUI];
 }
 
 -(void) adjustScrollView{

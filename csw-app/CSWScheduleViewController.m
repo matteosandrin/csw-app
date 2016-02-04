@@ -21,6 +21,7 @@
     
     schedule = [NSArray array];
     [self setupUI];
+    [self.tableView setContentOffset:CGPointMake(0, -self.refreshControl.frame.size.height) animated:YES];
     [self refresh];
     
 }
@@ -47,6 +48,7 @@
              [label setText:@"No schedule was found for this date"];
              [label setFont:[UIFont sanFranciscoFontWithSize:15]];
              [label setTextColor:[UIColor darkCSWBlueColor]];
+             [label setBackgroundColor:[UIColor whiteColor]];
              [label setTextAlignment:NSTextAlignmentCenter];
              [self.tableView.tableHeaderView addSubview:label];
              
@@ -59,6 +61,7 @@
                  [label setFont:[UIFont sanFranciscoFontWithSize:12]];
                  [label setTextColor:[UIColor darkCSWBlueColor]];
                  [label setTextAlignment:NSTextAlignmentCenter];
+                 [label setBackgroundColor:[UIColor whiteColor]];
                  [self.tableView.tableHeaderView addSubview:label];
              }else{
                  [UIView animateWithDuration:0.1 animations:^{
@@ -213,10 +216,10 @@
                                     NSParagraphStyleAttributeName : labelParagraphStyle
                                     };
     picker.toolbar.translucent = NO;
-    [picker.toolbar setBarTintColor:[UIColor darkCSWBlueColor]];
-    [picker.toolbar setBackgroundColor:[UIColor darkCSWBlueColor]];
     
     [picker showActionSheetPicker];
+    [picker.toolbar setBarTintColor:[UIColor darkCSWBlueColor]];
+    [picker.toolbar setBackgroundColor:[UIColor darkCSWBlueColor]];
     
 }
 
@@ -261,10 +264,12 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSelector:@selector(segue) withObject:nil afterDelay:0.1];
+}
+
+-(void) segue {
     [self performSegueWithIdentifier:@"pushToClass" sender:self.navigationController];
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
 }
 
 
@@ -307,12 +312,14 @@
 
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  
-     CSWClassViewController *destination = (CSWClassViewController*)[segue destinationViewController];
-     
-     long index = self.tableView.indexPathForSelectedRow.row;
-     NSDictionary *data = schedule[index];
-     destination.class_data = data;
- 
+     if ([segue.identifier isEqual:@"pushToClass"]) {
+         CSWClassViewController *destination = (CSWClassViewController*)[segue destinationViewController];
+         
+         long index = self.tableView.indexPathForSelectedRow.row;
+         NSDictionary *data = schedule[index];
+         destination.class_data = data;
+         
+     }
 }
 
 

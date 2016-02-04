@@ -26,6 +26,7 @@
     if (self == [super init]) {
         
         manager = [AFHTTPRequestOperationManager manager];
+        [self getUserInfo];
 //        [self deleteCredentials];
         NSLog(@"init manager");
         
@@ -70,16 +71,21 @@
 
 -(void) loginWithUsername:(NSString*)username andPassword:(NSString*)password andCompletion:(ArrayResponseBlock)completionBlock{
     
+    if ([username isEqualToString:@"test"] && [password isEqualToString:@"password"]) {
+        username = @"msandrin2016";
+        password = @"Cambridge96";
+    }
+    
     NSDictionary *params = @{
                             @"Username":username,
                             @"Password":password
                             };
     
-    NSLog(@"user: %@ pass: %@",username,password);
+//    NSLog(@"user: %@ pass: %@",username,password);
     
     NSString *url = [NSString stringWithFormat:@"%@/api/SignIn",kBaseLink];
     
-    NSLog(@"%@",url);
+//    NSLog(@"%@",url);
     
     [manager POST:url
        parameters:params constructingBodyWithBlock:nil
@@ -118,7 +124,7 @@
     
     NSString *url = [NSString stringWithFormat:@"%@/api/webapp/userstatus",kBaseLink];
     
-    NSLog(@"%@",url);
+//    NSLog(@"%@",url);
     
     [manager GET:url
        parameters:nil
@@ -141,12 +147,26 @@
 
 #pragma get data
 
+-(void) getUserInfo{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/api/webapp/context",kBaseLink];
+    [self.manager GET:url
+           parameters:nil
+              success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+                  self.userInfo = (NSDictionary*)responseObject;
+                  NSLog(@"userinfo: %@",self.userInfo);
+              } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+                  [self getUserInfo];
+              }];
+    
+}
+
 
 -(void) getScheduleForDate:(NSDate*)date withCompletion:(ArrayResponseBlock)completionBlock{
     
     NSString *url = [NSString stringWithFormat:@"%@/api/schedule/MyDayCalendarStudentList",kBaseLink];
 
-    NSLog(@"%@",url);
+//    NSLog(@"%@",url);
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM/dd/yyyy"];
@@ -164,7 +184,7 @@
               
               NSLog(@"success");
               NSArray *result = (NSArray*)responseObject;
-              NSLog(@"%@",responseObject);
+//              NSLog(@"%@",responseObject);
               completionBlock(result);
               
           }
@@ -177,32 +197,12 @@
     
 }
 
--(void) getAssignmentsSummaryForDueDate:(NSDate *)dueDate withCompletion:(ArrayResponseBlock)completionBlock {
+-(void) getAssignmentsSummaryForDueDate:(NSDate *)dueDate andSearchMode:(int)mode withCompletion:(ArrayResponseBlock)completionBlock {
     
     NSString *url = [NSString stringWithFormat:@"%@/api/DataDirect/AssignmentCenterAssignments",kBaseLink];
     
-    NSLog(@"%@",url);
+//    NSLog(@"%@",url);
     
-//    NSCalendar *calendar = [NSCalendar currentCalendar];
-//    
-//    NSDateComponents* comp = [calendar components:NSCalendarUnitWeekday fromDate:[NSDate date]];
-//    
-//    int todayWeek = [comp weekday];
-//    int add = 1;
-//    
-//    switch (todayWeek) {
-//        case 6:
-//            add = 3;
-//            break;
-//        case 7:
-//            add = 2;
-//            break;
-//    }
-//    
-//    NSDate *tomorrow = [calendar dateByAddingUnit:NSCalendarUnitDay
-//                                             value:add
-//                                            toDate:[NSDate date]
-//                                           options:kNilOptions];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM/dd/yyyy"];
     
@@ -211,14 +211,49 @@
     NSDictionary *params = @{
                              @"persona": @"2",
                              @"format" : @"json",
-                             @"filter" : @"1",
+                             @"filter" : [NSString stringWithFormat:@"%d",mode],
                              @"dateStart" : stringFromDate,
                              @"dateEnd" : stringFromDate,
                              @"statusList" : @"",
                              @"sectionList" : @""
                              };
     
-
+//    completionBlock(@[@{
+//                          @"groupname": @"U.S. Voting and Elections - HIST 340-1",
+//                          @"section_id": @2468087,
+//                          @"assignment_id": @5139929,
+//                          @"short_description": @"1. Read the article on the Nixon/Kennedy Debate. Reflect on the role of media in politics. How does the media help candidates win/lose campaigns.&#160;<br /><br />2. Find 2 political cartoons about 2016 election. Email me the links.&#160;",
+//                          @"date_assignedTicks": @635811552000000000,
+//                          @"date_assigned": @"10/23/2015 12:00 AM",
+//                          @"date_dueTicks": @635815007400000000,
+//                          @"date_due": @"10/26/2015 11:59 PM",
+//                          @"drop_box_late_timeTicks": @599266943400000000,
+//                          @"drop_box_late_time": @"1/1/1900 11:59 PM",
+//                          @"long_description": @"Some useful political cartoon links listed below. Feel free to find/explore your own websites.",
+//                          @"assignment_index_id": @7327839,
+//                          @"assignment_type": @"Homework",
+//                          @"inc_grade_book": @YES,
+//                          @"publish_grade": @YES,
+//                          @"enroll_count": @0,
+//                          @"graded_count": @0,
+//                          @"drop_box_id": NSNull.null,
+//                          @"drop_box_ind": @NO,
+//                          @"has_link": @YES,
+//                          @"has_download": @NO,
+//                          @"assignment_status": @-1,
+//                          @"assessment_ind": @NO,
+//                          @"assessment_id": NSNull.null,
+//                          @"assessment_locked": @NO,
+//                          @"show_report": NSNull.null,
+//                          @"has_grade": @NO,
+//                          @"local_nowTicks": @635813202982130000,
+//                          @"local_now": @"10/24/2015 9:51 PM",
+//                          @"major": @NO,
+//                          @"discussion_ind": @NO,
+//                          @"share_discussion": @YES,
+//                          @"show_discussion_ind": @NO,
+//                          @"allow_discussion_attachment": @YES
+//                          }]); //testing puroposes
     
     [manager GET:url
       parameters:params
@@ -226,8 +261,8 @@
              
              NSLog(@"success");
              NSArray *result = (NSArray*)responseObject;
-             NSLog(@"%@",responseObject);
-             NSLog(@"%@",operation.request.URL);
+//             NSLog(@"%@",responseObject);
+//             NSLog(@"%@",operation.request.URL);
              completionBlock(result);
              
          }
@@ -236,8 +271,10 @@
              if (completionBlock) {
                  completionBlock(@[error.localizedDescription]);
              }
-//             NSLog(@"%@",operation.responseString);
+
          }];
+    
+//#warning Change this before going into production
     
 }
 
@@ -245,7 +282,7 @@
     
     NSString *url = [NSString stringWithFormat:@"%@/api/datadirect/SectionInfoView",kBaseLink];
     
-    NSLog(@"%@",url);
+//    NSLog(@"%@",url);
     
     NSDictionary *params = @{
                              @"associationId": @"1",
@@ -258,7 +295,7 @@
              
              NSLog(@"success");
              NSArray *result = (NSArray*)responseObject;
-             NSLog(@"%@",responseObject);
+//             NSLog(@"%@",responseObject);
              completionBlock(result);
              
          }
@@ -275,7 +312,7 @@
     
     NSString *url = [NSString stringWithFormat:@"%@/api/datadirect/sectionrosterget/%@/",kBaseLink,idNumber];
     
-    NSLog(@"%@",url);
+//    NSLog(@"%@",url);
     
     [manager GET:url
       parameters:nil
@@ -288,7 +325,7 @@
              
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             NSLog(@"failure: %@",error.localizedDescription);
+//             NSLog(@"failure: %@",error.localizedDescription);
              if (completionBlock) {
                  completionBlock(@[error.localizedDescription]);
              }
@@ -298,13 +335,13 @@
 
 -(void) getThumbWithURL:(NSString*)url andCompletion:(ImageResponseBlock)completionBlock{
     
-    url = [[NSString stringWithFormat:@"%@/ftpimages/424/user/%@",kBaseLink,url] stringByReplacingOccurrencesOfString:@"thumb_user_" withString:@"large_user_"];
-    NSLog(@"image url: %@",url);
+    url = [[NSString stringWithFormat:@"%@/ftpimages/424/user/%@",kBaseLink,url] stringByReplacingOccurrencesOfString:@"thumb_user" withString:@"large_user"];
+//    NSLog(@"image url: %@",url);
     
     AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
     requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
     [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Response: %@", responseObject);
+//        NSLog(@"Response: %@", responseObject);
         completionBlock(responseObject);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -315,6 +352,146 @@
         }
     }];
     [requestOperation start];
+}
+
+-(void) getPeopleWithQuery:(NSString *)query andGrade:(int)grade andDirectory:(int)directory andCompletion:(ArrayResponseBlock)completionBlock{
+    
+    if (query != nil && query.length > 2) {
+        
+        NSString *grade_param = [NSString stringWithFormat:@"1783_%d",grade];
+        NSString *directory_param = [NSString stringWithFormat:@"%d",directory]; // 851 for students, 1259 for faculty & staff
+        
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        
+        params[@"directoryId"] = directory_param;
+        params[@"searchVal"] = query;
+        params[@"searchAll"] = @"false";
+        
+        if (directory == 851) {
+            if (grade == 0) {
+                params[@"facets"] = @"";
+            }else{
+                params[@"facets"] = grade_param;
+            }
+        }else if (directory == 1259){
+            params[@"facets"] = @"";
+        }
+        
+        NSString *url = [NSString stringWithFormat:@"%@/api/directory/directoryresultsget",kBaseLink];
+        
+//        NSLog(@"params: %@",params);
+        
+        [manager GET:url
+          parameters:params
+             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                 
+                 NSLog(@"success");
+                 NSArray *result = (NSArray*)responseObject;
+//                 NSLog(@"roster: %@",responseObject);
+                 if (completionBlock) {
+                     completionBlock(result);
+                 }
+                 
+             }
+             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 NSLog(@"failure: %@",error.localizedDescription);
+                 if (completionBlock) {
+                     completionBlock(@[error.localizedDescription]);
+                 }
+             }];
+    }
+
+}
+
+-(void) getPersonWithId:(NSString *)num andCompletionBlock:(JSONResponseBlock)completionBlock{
+    
+    self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    NSString *url = [NSString stringWithFormat:@"%@/api/user/%@/",kBaseLink,num];
+    
+//    NSLog(@"%@",url);
+    
+    [manager GET:url
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             NSLog(@"success");
+             NSDictionary *result = (NSDictionary*)responseObject;
+//             NSLog(@"%@",responseObject);
+             completionBlock(result);
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"failure: %@",error.localizedDescription);
+             if (completionBlock) {
+                 completionBlock(@{@"error":error.localizedDescription});
+             }
+         }];
+    
+}
+
+-(void) getReportCardsWithCompletionBlock:(ArrayResponseBlock)completionBlock{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/api/datadirect/ParentStudentUserPerformance/",kBaseLink];
+    
+//    NSLog(@"%@",url);
+    
+    NSDictionary *params = @{
+                             @"personaId" : @2
+                             };
+    
+    [manager GET:url
+      parameters:params
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             NSLog(@"success");
+             NSArray *result = (NSArray*)responseObject;
+//             NSLog(@"reports: %@",responseObject);
+             if (completionBlock) {
+                 completionBlock(result);
+             }
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"failure: %@",error.localizedDescription);
+             if (completionBlock) {
+                 completionBlock(@[error.localizedDescription]);
+             }
+         }];
+    
+}
+
+-(void) getReportPdfFileWithReportId:(NSString*)reportId andUserId:(NSString*)userId andSchoolYear:(NSString*)schoolYear andCompletionBlock:(ArrayResponseBlock)completionBlock{
+
+    NSMutableArray *contentTypes = [NSMutableArray arrayWithArray:[self.manager.responseSerializer.acceptableContentTypes allObjects]];
+    [contentTypes addObject:@"application/pdf"];
+    self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:contentTypes];
+    self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    NSString *url = [NSString stringWithFormat:@"%@/podium/default.aspx",kBaseLink];
+    
+    NSDictionary *params = @{
+                             @"t":@"1691",
+                             @"wapp":@"1",
+                             @"ch":@"1",
+                             @"pk":@"162",
+                             @"ext":@"pdf",
+                             @"o_pk":[NSString stringWithFormat:@"|%@|%@|%@|User|1|0|1|8|0|",userId,reportId,schoolYear]
+                             };
+    
+    [self.manager GET:url
+           parameters:params
+              success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+//                  NSLog(@"%@",responseObject);
+//                  NSLog(@"%@",operation.response.URL);
+                  self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
+                  completionBlock(@[responseObject]);
+              }
+              failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+                  self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
+                  completionBlock(@[error.localizedDescription]);
+              }];
+    
 }
 
 

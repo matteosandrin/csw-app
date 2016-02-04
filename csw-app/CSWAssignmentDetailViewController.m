@@ -46,7 +46,7 @@
     self.contentTextView.attributedText = attributedString;
     self.contentTextView.textContainerInset = UIEdgeInsetsMake(15, 15, 15, 15);
     
-    if ([htmlString isEqualToString:@""]) {
+    if ([htmlString isEqualToString:@""] || [htmlString isEqualToString:@"<null>"]) {
 //        [self.contentTextView removeFromSuperview];
         [self.contentTextView setFrame:CGRectMake(0, self.contentTextView.frame.origin.y, self.contentTextView.frame.size.width, 0)];
         [self.contentTextView setBackgroundColor:[UIColor clearColor]];

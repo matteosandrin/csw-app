@@ -10,7 +10,9 @@
 #import "CSWManager.h"
 #import "FlatUIKit.h"
 #import "AMSmoothAlertView.h"
+#import "CSWMainTabBarViewController.h"
 
 @interface CSWIntroViewController : UIViewController
+
 
 @end

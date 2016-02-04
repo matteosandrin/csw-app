@@ -12,11 +12,14 @@
 		EC000AD81BFBBC9B00DEF4D0 /* CSWRosterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC000AD71BFBBC9B00DEF4D0 /* CSWRosterTableViewCell.m */; };
 		EC000ADE1BFBC7EE00DEF4D0 /* defaultThumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC000ADD1BFBC7EE00DEF4D0 /* defaultThumb@2x.png */; };
 		EC09F2FD1BE16538005B5DAB /* CSWAssignmentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC09F2FC1BE16538005B5DAB /* CSWAssignmentDetailViewController.m */; };
+		EC1AD44E1C28C68E0000157F /* CSWReportCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1AD44D1C28C68E0000157F /* CSWReportCardsViewController.m */; };
+		EC1AD4511C28C74A0000157F /* CSWReportCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC1AD4501C28C74A0000157F /* CSWReportCardCell.xib */; };
+		EC1AD4541C28C76C0000157F /* CSWReportCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1AD4531C28C76C0000157F /* CSWReportCardTableViewCell.m */; };
+		EC1AD4561C28D52F0000157F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC1AD4551C28D52F0000157F /* Main.storyboard */; };
 		EC1ECAE31BE040F7002E4BA4 /* CSWAssignmentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC1ECAE21BE040F7002E4BA4 /* CSWAssignmentsTableViewCell.xib */; };
 		EC1ECAE61BE0410A002E4BA4 /* CSWAssignmentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1ECAE51BE0410A002E4BA4 /* CSWAssignmentsTableViewCell.m */; };
 		EC400FE11BD89D0000ECC31B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC400FE01BD89D0000ECC31B /* main.m */; };
 		EC400FE41BD89D0000ECC31B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC400FE31BD89D0000ECC31B /* AppDelegate.m */; };
-		EC400FEA1BD89D0000ECC31B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC400FE81BD89D0000ECC31B /* Main.storyboard */; };
 		EC400FEC1BD89D0000ECC31B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC400FEB1BD89D0000ECC31B /* Assets.xcassets */; };
 		EC400FEF1BD89D0000ECC31B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC400FED1BD89D0000ECC31B /* LaunchScreen.storyboard */; };
 		EC400FFA1BD89D0000ECC31B /* csw_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC400FF91BD89D0000ECC31B /* csw_appTests.m */; };
@@ -36,11 +39,36 @@
 		EC77D1611BDC41EE00561959 /* assignmentsTabButtonSelected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC77D15F1BDC41EE00561959 /* assignmentsTabButtonSelected@3x.png */; };
 		EC77D1621BDC41EE00561959 /* assignmentsTabButtonNormal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC77D1601BDC41EE00561959 /* assignmentsTabButtonNormal@3x.png */; };
 		EC77D1651BDC445C00561959 /* CSWAssignmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC77D1641BDC445C00561959 /* CSWAssignmentsViewController.m */; };
+		EC7A2F411C076E940043CF6F /* CSWDetailSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A2F401C076E940043CF6F /* CSWDetailSearchViewController.m */; };
 		EC8EF8801BFA805400516078 /* CSWRosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8EF87F1BFA805400516078 /* CSWRosterViewController.m */; };
+		EC9C10CC1C569BCB00D550EB /* Pods-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC9C10CB1C569BCB00D550EB /* Pods-acknowledgements.plist */; };
+		ECA33EA01C541A70003FC91A /* settingsButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECA33E9F1C541A70003FC91A /* settingsButton@3x.png */; };
+		ECAD86341C02C3EA003BFCF4 /* CSWSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECAD86331C02C3EA003BFCF4 /* CSWSearchTableViewCell.xib */; };
+		ECAD86381C02C429003BFCF4 /* CSWSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAD86371C02C429003BFCF4 /* CSWSearchTableViewCell.m */; };
 		ECADDDCE1BEF089100B1235C /* CSWClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECADDDCD1BEF089100B1235C /* CSWClassViewController.m */; };
+		ECBD791E1C542535000883AB /* CSWSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBD791D1C542535000883AB /* CSWSettingsViewController.m */; };
+		ECC7D8991C063C43007ED0DC /* directoryTabButtonNormal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC7D8971C063C43007ED0DC /* directoryTabButtonNormal@3x.png */; };
+		ECC7D89A1C063C43007ED0DC /* directoryTabButtonSelected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC7D8981C063C43007ED0DC /* directoryTabButtonSelected@3x.png */; };
+		ECC7D89F1C0663F2007ED0DC /* CSWSearchPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC7D89D1C0663F2007ED0DC /* CSWSearchPopoverViewController.m */; };
 		ECD1BA441BDD45AF00193FC0 /* icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD1BA431BDD45AF00193FC0 /* icon@3x.png */; };
 		ECD1BA461BDD467400193FC0 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD1BA451BDD467400193FC0 /* icon@2x.png */; };
+		ECD5D7911C02A5DA003059BF /* CSWDirectorySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD5D7901C02A5DA003059BF /* CSWDirectorySearchViewController.m */; };
+		ECD978551C2C3A75005EAD7B /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECD978361C2C3A75005EAD7B /* SVWebViewController.strings */; };
+		ECD978561C2C3A75005EAD7B /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD978401C2C3A75005EAD7B /* SVModalWebViewController.m */; };
+		ECD978571C2C3A75005EAD7B /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ECD978411C2C3A75005EAD7B /* SVWebViewController.bundle */; };
+		ECD978581C2C3A75005EAD7B /* SVWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD978431C2C3A75005EAD7B /* SVWebViewController.m */; };
+		ECD978591C2C3A75005EAD7B /* SVWebViewControllerActivityChrome-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD978461C2C3A75005EAD7B /* SVWebViewControllerActivityChrome-iPad.png */; };
+		ECD9785A1C2C3A75005EAD7B /* SVWebViewControllerActivityChrome-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD978471C2C3A75005EAD7B /* SVWebViewControllerActivityChrome-iPad@2x.png */; };
+		ECD9785B1C2C3A75005EAD7B /* SVWebViewControllerActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD978491C2C3A75005EAD7B /* SVWebViewControllerActivityChrome.m */; };
+		ECD9785C1C2C3A75005EAD7B /* SVWebViewControllerActivityChrome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD9784A1C2C3A75005EAD7B /* SVWebViewControllerActivityChrome@2x.png */; };
+		ECD9785D1C2C3A75005EAD7B /* SVWebViewControllerActivitySafari-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD9784C1C2C3A75005EAD7B /* SVWebViewControllerActivitySafari-iPad.png */; };
+		ECD9785E1C2C3A75005EAD7B /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD9784D1C2C3A75005EAD7B /* SVWebViewControllerActivitySafari-iPad@2x.png */; };
+		ECD9785F1C2C3A75005EAD7B /* SVWebViewControllerActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD9784F1C2C3A75005EAD7B /* SVWebViewControllerActivitySafari.m */; };
+		ECD978601C2C3A75005EAD7B /* SVWebViewControllerActivitySafari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD978501C2C3A75005EAD7B /* SVWebViewControllerActivitySafari@2x.png */; };
+		ECD978611C2C3A75005EAD7B /* SVWebViewControllerActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD978521C2C3A75005EAD7B /* SVWebViewControllerActivity.m */; };
 		ECF40B1E1BD9365800CF3612 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = ECF40B1D1BD9365800CF3612 /* splash.png */; };
+		ECFAD2621C3EED3A001AE805 /* reportsTabButtonSelected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECFAD2601C3EED3A001AE805 /* reportsTabButtonSelected@3x.png */; };
+		ECFAD2631C3EED3A001AE805 /* reportsTabButtonNormal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECFAD2611C3EED3A001AE805 /* reportsTabButtonNormal@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +97,12 @@
 		EC000ADD1BFBC7EE00DEF4D0 /* defaultThumb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultThumb@2x.png"; sourceTree = "<group>"; };
 		EC09F2FB1BE16538005B5DAB /* CSWAssignmentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWAssignmentDetailViewController.h; sourceTree = "<group>"; };
 		EC09F2FC1BE16538005B5DAB /* CSWAssignmentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWAssignmentDetailViewController.m; sourceTree = "<group>"; };
+		EC1AD44C1C28C68E0000157F /* CSWReportCardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWReportCardsViewController.h; sourceTree = "<group>"; };
+		EC1AD44D1C28C68E0000157F /* CSWReportCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWReportCardsViewController.m; sourceTree = "<group>"; };
+		EC1AD4501C28C74A0000157F /* CSWReportCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSWReportCardCell.xib; sourceTree = "<group>"; };
+		EC1AD4521C28C76C0000157F /* CSWReportCardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWReportCardTableViewCell.h; sourceTree = "<group>"; };
+		EC1AD4531C28C76C0000157F /* CSWReportCardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWReportCardTableViewCell.m; sourceTree = "<group>"; };
+		EC1AD4551C28D52F0000157F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EC1ECAE21BE040F7002E4BA4 /* CSWAssignmentsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSWAssignmentsTableViewCell.xib; sourceTree = "<group>"; };
 		EC1ECAE41BE0410A002E4BA4 /* CSWAssignmentsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWAssignmentsTableViewCell.h; sourceTree = "<group>"; };
 		EC1ECAE51BE0410A002E4BA4 /* CSWAssignmentsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWAssignmentsTableViewCell.m; sourceTree = "<group>"; };
@@ -76,7 +110,6 @@
 		EC400FE01BD89D0000ECC31B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EC400FE21BD89D0000ECC31B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EC400FE31BD89D0000ECC31B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EC400FE91BD89D0000ECC31B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC400FEB1BD89D0000ECC31B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC400FEE1BD89D0000ECC31B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC400FF01BD89D0000ECC31B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -109,13 +142,57 @@
 		EC77D1601BDC41EE00561959 /* assignmentsTabButtonNormal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "assignmentsTabButtonNormal@3x.png"; sourceTree = "<group>"; };
 		EC77D1631BDC445C00561959 /* CSWAssignmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWAssignmentsViewController.h; sourceTree = "<group>"; };
 		EC77D1641BDC445C00561959 /* CSWAssignmentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWAssignmentsViewController.m; sourceTree = "<group>"; };
+		EC7A2F3F1C076E940043CF6F /* CSWDetailSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWDetailSearchViewController.h; sourceTree = "<group>"; };
+		EC7A2F401C076E940043CF6F /* CSWDetailSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWDetailSearchViewController.m; sourceTree = "<group>"; };
 		EC8EF87E1BFA805400516078 /* CSWRosterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWRosterViewController.h; sourceTree = "<group>"; };
 		EC8EF87F1BFA805400516078 /* CSWRosterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWRosterViewController.m; sourceTree = "<group>"; };
+		EC9C10CB1C569BCB00D550EB /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		ECA33E9F1C541A70003FC91A /* settingsButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsButton@3x.png"; sourceTree = "<group>"; };
+		ECAD86331C02C3EA003BFCF4 /* CSWSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSWSearchTableViewCell.xib; sourceTree = "<group>"; };
+		ECAD86361C02C429003BFCF4 /* CSWSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWSearchTableViewCell.h; sourceTree = "<group>"; };
+		ECAD86371C02C429003BFCF4 /* CSWSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWSearchTableViewCell.m; sourceTree = "<group>"; };
 		ECADDDCC1BEF089100B1235C /* CSWClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWClassViewController.h; sourceTree = "<group>"; };
 		ECADDDCD1BEF089100B1235C /* CSWClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWClassViewController.m; sourceTree = "<group>"; };
+		ECBD791C1C542535000883AB /* CSWSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWSettingsViewController.h; sourceTree = "<group>"; };
+		ECBD791D1C542535000883AB /* CSWSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWSettingsViewController.m; sourceTree = "<group>"; };
+		ECC7D8971C063C43007ED0DC /* directoryTabButtonNormal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "directoryTabButtonNormal@3x.png"; sourceTree = "<group>"; };
+		ECC7D8981C063C43007ED0DC /* directoryTabButtonSelected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "directoryTabButtonSelected@3x.png"; sourceTree = "<group>"; };
+		ECC7D89C1C0663F2007ED0DC /* CSWSearchPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWSearchPopoverViewController.h; sourceTree = "<group>"; };
+		ECC7D89D1C0663F2007ED0DC /* CSWSearchPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWSearchPopoverViewController.m; sourceTree = "<group>"; };
 		ECD1BA431BDD45AF00193FC0 /* icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@3x.png"; sourceTree = "<group>"; };
 		ECD1BA451BDD467400193FC0 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		ECD5D78F1C02A5DA003059BF /* CSWDirectorySearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWDirectorySearchViewController.h; sourceTree = "<group>"; };
+		ECD5D7901C02A5DA003059BF /* CSWDirectorySearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWDirectorySearchViewController.m; sourceTree = "<group>"; };
+		ECD978371C2C3A75005EAD7B /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
+		ECD978381C2C3A75005EAD7B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
+		ECD978391C2C3A75005EAD7B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
+		ECD9783A1C2C3A75005EAD7B /* es-ES */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-ES"; path = "es-ES.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
+		ECD9783B1C2C3A75005EAD7B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
+		ECD9783C1C2C3A75005EAD7B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
+		ECD9783D1C2C3A75005EAD7B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
+		ECD9783E1C2C3A75005EAD7B /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
+		ECD9783F1C2C3A75005EAD7B /* SVModalWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVModalWebViewController.h; sourceTree = "<group>"; };
+		ECD978401C2C3A75005EAD7B /* SVModalWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVModalWebViewController.m; sourceTree = "<group>"; };
+		ECD978411C2C3A75005EAD7B /* SVWebViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVWebViewController.bundle; sourceTree = "<group>"; };
+		ECD978421C2C3A75005EAD7B /* SVWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVWebViewController.h; sourceTree = "<group>"; };
+		ECD978431C2C3A75005EAD7B /* SVWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewController.m; sourceTree = "<group>"; };
+		ECD978461C2C3A75005EAD7B /* SVWebViewControllerActivityChrome-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SVWebViewControllerActivityChrome-iPad.png"; sourceTree = "<group>"; };
+		ECD978471C2C3A75005EAD7B /* SVWebViewControllerActivityChrome-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SVWebViewControllerActivityChrome-iPad@2x.png"; sourceTree = "<group>"; };
+		ECD978481C2C3A75005EAD7B /* SVWebViewControllerActivityChrome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVWebViewControllerActivityChrome.h; sourceTree = "<group>"; };
+		ECD978491C2C3A75005EAD7B /* SVWebViewControllerActivityChrome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewControllerActivityChrome.m; sourceTree = "<group>"; };
+		ECD9784A1C2C3A75005EAD7B /* SVWebViewControllerActivityChrome@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SVWebViewControllerActivityChrome@2x.png"; sourceTree = "<group>"; };
+		ECD9784C1C2C3A75005EAD7B /* SVWebViewControllerActivitySafari-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SVWebViewControllerActivitySafari-iPad.png"; sourceTree = "<group>"; };
+		ECD9784D1C2C3A75005EAD7B /* SVWebViewControllerActivitySafari-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SVWebViewControllerActivitySafari-iPad@2x.png"; sourceTree = "<group>"; };
+		ECD9784E1C2C3A75005EAD7B /* SVWebViewControllerActivitySafari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVWebViewControllerActivitySafari.h; sourceTree = "<group>"; };
+		ECD9784F1C2C3A75005EAD7B /* SVWebViewControllerActivitySafari.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewControllerActivitySafari.m; sourceTree = "<group>"; };
+		ECD978501C2C3A75005EAD7B /* SVWebViewControllerActivitySafari@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SVWebViewControllerActivitySafari@2x.png"; sourceTree = "<group>"; };
+		ECD978511C2C3A75005EAD7B /* SVWebViewControllerActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVWebViewControllerActivity.h; sourceTree = "<group>"; };
+		ECD978521C2C3A75005EAD7B /* SVWebViewControllerActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewControllerActivity.m; sourceTree = "<group>"; };
+		ECD978531C2C3A75005EAD7B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
+		ECD978541C2C3A75005EAD7B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
 		ECF40B1D1BD9365800CF3612 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
+		ECFAD2601C3EED3A001AE805 /* reportsTabButtonSelected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reportsTabButtonSelected@3x.png"; sourceTree = "<group>"; };
+		ECFAD2611C3EED3A001AE805 /* reportsTabButtonNormal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reportsTabButtonNormal@3x.png"; sourceTree = "<group>"; };
 		F33E246687C1E5A337219E41 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -165,7 +242,7 @@
 		EC000AD91BFBBCA800DEF4D0 /* Main UI */ = {
 			isa = PBXGroup;
 			children = (
-				EC400FE81BD89D0000ECC31B /* Main.storyboard */,
+				EC1AD4551C28D52F0000157F /* Main.storyboard */,
 				EC400FED1BD89D0000ECC31B /* LaunchScreen.storyboard */,
 			);
 			name = "Main UI";
@@ -201,6 +278,25 @@
 			name = "Roster Cell";
 			sourceTree = "<group>";
 		};
+		EC1AD44B1C28C6400000157F /* Report Cards */ = {
+			isa = PBXGroup;
+			children = (
+				EC1AD44C1C28C68E0000157F /* CSWReportCardsViewController.h */,
+				EC1AD44D1C28C68E0000157F /* CSWReportCardsViewController.m */,
+			);
+			name = "Report Cards";
+			sourceTree = "<group>";
+		};
+		EC1AD44F1C28C71A0000157F /* Report Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EC1AD4501C28C74A0000157F /* CSWReportCardCell.xib */,
+				EC1AD4521C28C76C0000157F /* CSWReportCardTableViewCell.h */,
+				EC1AD4531C28C76C0000157F /* CSWReportCardTableViewCell.m */,
+			);
+			name = "Report Cell";
+			sourceTree = "<group>";
+		};
 		EC400FD31BD89CFF00ECC31B = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +322,7 @@
 		EC400FDE1BD89D0000ECC31B /* csw-app */ = {
 			isa = PBXGroup;
 			children = (
+				ECD978351C2C3A75005EAD7B /* SVWebViewController */,
 				EC40102D1BD89DEF00ECC31B /* UI */,
 				EC40102C1BD89DD700ECC31B /* View Controllers */,
 				EC4010161BD89DCC00ECC31B /* CSWManager.h */,
@@ -244,6 +341,7 @@
 		EC400FDF1BD89D0000ECC31B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EC9C10CB1C569BCB00D550EB /* Pods-acknowledgements.plist */,
 				EC400FE01BD89D0000ECC31B /* main.m */,
 			);
 			name = "Supporting Files";
@@ -273,9 +371,11 @@
 				EC716E161C00FF9800D12519 /* Intro */,
 				EC716E171C00FFA300D12519 /* Login */,
 				EC716E181C00FFAD00D12519 /* Schedule */,
-				EC716E191C00FFBF00D12519 /* Schedule */,
-				EC8EF87E1BFA805400516078 /* CSWRosterViewController.h */,
-				EC8EF87F1BFA805400516078 /* CSWRosterViewController.m */,
+				EC716E191C00FFBF00D12519 /* Assignments */,
+				ECD5D78E1C02A59D003059BF /* Roster */,
+				ECD5D7921C02A5E0003059BF /* Search */,
+				EC1AD44B1C28C6400000157F /* Report Cards */,
+				ECBD79181C5424CF000883AB /* Settings */,
 				EC716E1A1C01001F00D12519 /* CSWMainTabBarViewController.h */,
 				EC716E1B1C01001F00D12519 /* CSWMainTabBarViewController.m */,
 			);
@@ -289,6 +389,8 @@
 				EC000ADA1BFBBCC300DEF4D0 /* Schedule Cell */,
 				EC000ADB1BFBBCD000DEF4D0 /* Assignments Cell */,
 				EC000ADC1BFBBCDD00DEF4D0 /* Roster Cell */,
+				ECAD86351C02C3F1003BFCF4 /* Search Cell */,
+				EC1AD44F1C28C71A0000157F /* Report Cell */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -296,6 +398,11 @@
 		EC40102E1BD89E0A00ECC31B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				ECA33E9F1C541A70003FC91A /* settingsButton@3x.png */,
+				ECFAD2601C3EED3A001AE805 /* reportsTabButtonSelected@3x.png */,
+				ECFAD2611C3EED3A001AE805 /* reportsTabButtonNormal@3x.png */,
+				ECC7D8971C063C43007ED0DC /* directoryTabButtonNormal@3x.png */,
+				ECC7D8981C063C43007ED0DC /* directoryTabButtonSelected@3x.png */,
 				EC000ADD1BFBC7EE00DEF4D0 /* defaultThumb@2x.png */,
 				ECD1BA451BDD467400193FC0 /* icon@2x.png */,
 				ECD1BA431BDD45AF00193FC0 /* icon@3x.png */,
@@ -340,7 +447,7 @@
 			name = Schedule;
 			sourceTree = "<group>";
 		};
-		EC716E191C00FFBF00D12519 /* Schedule */ = {
+		EC716E191C00FFBF00D12519 /* Assignments */ = {
 			isa = PBXGroup;
 			children = (
 				EC77D1631BDC445C00561959 /* CSWAssignmentsViewController.h */,
@@ -348,7 +455,97 @@
 				EC09F2FB1BE16538005B5DAB /* CSWAssignmentDetailViewController.h */,
 				EC09F2FC1BE16538005B5DAB /* CSWAssignmentDetailViewController.m */,
 			);
-			name = Schedule;
+			name = Assignments;
+			sourceTree = "<group>";
+		};
+		ECAD86351C02C3F1003BFCF4 /* Search Cell */ = {
+			isa = PBXGroup;
+			children = (
+				ECAD86331C02C3EA003BFCF4 /* CSWSearchTableViewCell.xib */,
+				ECAD86361C02C429003BFCF4 /* CSWSearchTableViewCell.h */,
+				ECAD86371C02C429003BFCF4 /* CSWSearchTableViewCell.m */,
+			);
+			name = "Search Cell";
+			sourceTree = "<group>";
+		};
+		ECBD79181C5424CF000883AB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				ECBD791C1C542535000883AB /* CSWSettingsViewController.h */,
+				ECBD791D1C542535000883AB /* CSWSettingsViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		ECD5D78E1C02A59D003059BF /* Roster */ = {
+			isa = PBXGroup;
+			children = (
+				EC8EF87E1BFA805400516078 /* CSWRosterViewController.h */,
+				EC8EF87F1BFA805400516078 /* CSWRosterViewController.m */,
+			);
+			name = Roster;
+			sourceTree = "<group>";
+		};
+		ECD5D7921C02A5E0003059BF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				ECD5D78F1C02A5DA003059BF /* CSWDirectorySearchViewController.h */,
+				ECD5D7901C02A5DA003059BF /* CSWDirectorySearchViewController.m */,
+				ECC7D89C1C0663F2007ED0DC /* CSWSearchPopoverViewController.h */,
+				ECC7D89D1C0663F2007ED0DC /* CSWSearchPopoverViewController.m */,
+				EC7A2F3F1C076E940043CF6F /* CSWDetailSearchViewController.h */,
+				EC7A2F401C076E940043CF6F /* CSWDetailSearchViewController.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		ECD978351C2C3A75005EAD7B /* SVWebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ECD978361C2C3A75005EAD7B /* SVWebViewController.strings */,
+				ECD9783F1C2C3A75005EAD7B /* SVModalWebViewController.h */,
+				ECD978401C2C3A75005EAD7B /* SVModalWebViewController.m */,
+				ECD978411C2C3A75005EAD7B /* SVWebViewController.bundle */,
+				ECD978421C2C3A75005EAD7B /* SVWebViewController.h */,
+				ECD978431C2C3A75005EAD7B /* SVWebViewController.m */,
+				ECD978441C2C3A75005EAD7B /* UIActivities */,
+			);
+			path = SVWebViewController;
+			sourceTree = "<group>";
+		};
+		ECD978441C2C3A75005EAD7B /* UIActivities */ = {
+			isa = PBXGroup;
+			children = (
+				ECD978451C2C3A75005EAD7B /* Chrome */,
+				ECD9784B1C2C3A75005EAD7B /* Safari */,
+				ECD978511C2C3A75005EAD7B /* SVWebViewControllerActivity.h */,
+				ECD978521C2C3A75005EAD7B /* SVWebViewControllerActivity.m */,
+			);
+			path = UIActivities;
+			sourceTree = "<group>";
+		};
+		ECD978451C2C3A75005EAD7B /* Chrome */ = {
+			isa = PBXGroup;
+			children = (
+				ECD978461C2C3A75005EAD7B /* SVWebViewControllerActivityChrome-iPad.png */,
+				ECD978471C2C3A75005EAD7B /* SVWebViewControllerActivityChrome-iPad@2x.png */,
+				ECD978481C2C3A75005EAD7B /* SVWebViewControllerActivityChrome.h */,
+				ECD978491C2C3A75005EAD7B /* SVWebViewControllerActivityChrome.m */,
+				ECD9784A1C2C3A75005EAD7B /* SVWebViewControllerActivityChrome@2x.png */,
+			);
+			path = Chrome;
+			sourceTree = "<group>";
+		};
+		ECD9784B1C2C3A75005EAD7B /* Safari */ = {
+			isa = PBXGroup;
+			children = (
+				ECD9784C1C2C3A75005EAD7B /* SVWebViewControllerActivitySafari-iPad.png */,
+				ECD9784D1C2C3A75005EAD7B /* SVWebViewControllerActivitySafari-iPad@2x.png */,
+				ECD9784E1C2C3A75005EAD7B /* SVWebViewControllerActivitySafari.h */,
+				ECD9784F1C2C3A75005EAD7B /* SVWebViewControllerActivitySafari.m */,
+				ECD978501C2C3A75005EAD7B /* SVWebViewControllerActivitySafari@2x.png */,
+			);
+			path = Safari;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,7 +617,12 @@
 				TargetAttributes = {
 					EC400FDB1BD89D0000ECC31B = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = V3Z65KBKGQ;
+						DevelopmentTeam = 83BP6G8L8M;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					EC400FF41BD89D0000ECC31B = {
 						CreatedOnToolsVersion = 7.0;
@@ -441,6 +643,15 @@
 			knownRegions = (
 				en,
 				Base,
+				da,
+				de,
+				"es-ES",
+				es,
+				fr,
+				ja,
+				pt,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = EC400FD31BD89CFF00ECC31B;
 			productRefGroup = EC400FDD1BD89D0000ECC31B /* Products */;
@@ -462,19 +673,35 @@
 				EC000AD51BFBBC7E00DEF4D0 /* CSWRosterTableViewCell.xib in Resources */,
 				EC77D15E1BDC3D8F00561959 /* scheduleTabButtonNormal@3x.png in Resources */,
 				EC77D1611BDC41EE00561959 /* assignmentsTabButtonSelected@3x.png in Resources */,
+				EC9C10CC1C569BCB00D550EB /* Pods-acknowledgements.plist in Resources */,
 				EC77D1621BDC41EE00561959 /* assignmentsTabButtonNormal@3x.png in Resources */,
 				EC400FEF1BD89D0000ECC31B /* LaunchScreen.storyboard in Resources */,
+				ECD9785E1C2C3A75005EAD7B /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */,
 				EC000ADE1BFBC7EE00DEF4D0 /* defaultThumb@2x.png in Resources */,
 				EC1ECAE31BE040F7002E4BA4 /* CSWAssignmentsTableViewCell.xib in Resources */,
 				EC77D15D1BDC3D8F00561959 /* scheduleTabButtonSelected@3x.png in Resources */,
+				ECD978551C2C3A75005EAD7B /* SVWebViewController.strings in Resources */,
 				ECF40B1E1BD9365800CF3612 /* splash.png in Resources */,
+				ECD978571C2C3A75005EAD7B /* SVWebViewController.bundle in Resources */,
+				EC1AD4511C28C74A0000157F /* CSWReportCardCell.xib in Resources */,
 				EC4010291BD89DCC00ECC31B /* login_icon@2x.png in Resources */,
+				ECFAD2631C3EED3A001AE805 /* reportsTabButtonNormal@3x.png in Resources */,
+				ECD9785C1C2C3A75005EAD7B /* SVWebViewControllerActivityChrome@2x.png in Resources */,
+				EC1AD4561C28D52F0000157F /* Main.storyboard in Resources */,
+				ECD978591C2C3A75005EAD7B /* SVWebViewControllerActivityChrome-iPad.png in Resources */,
 				EC400FEC1BD89D0000ECC31B /* Assets.xcassets in Resources */,
+				ECD978601C2C3A75005EAD7B /* SVWebViewControllerActivitySafari@2x.png in Resources */,
 				ECD1BA441BDD45AF00193FC0 /* icon@3x.png in Resources */,
+				ECC7D89A1C063C43007ED0DC /* directoryTabButtonSelected@3x.png in Resources */,
+				ECFAD2621C3EED3A001AE805 /* reportsTabButtonSelected@3x.png in Resources */,
+				ECC7D8991C063C43007ED0DC /* directoryTabButtonNormal@3x.png in Resources */,
+				ECAD86341C02C3EA003BFCF4 /* CSWSearchTableViewCell.xib in Resources */,
 				EC4010251BD89DCC00ECC31B /* CSWScheduleCell.xib in Resources */,
-				EC400FEA1BD89D0000ECC31B /* Main.storyboard in Resources */,
 				EC40102A1BD89DCC00ECC31B /* SF-UI-Display-Light.ttf in Resources */,
+				ECA33EA01C541A70003FC91A /* settingsButton@3x.png in Resources */,
+				ECD9785A1C2C3A75005EAD7B /* SVWebViewControllerActivityChrome-iPad@2x.png in Resources */,
 				ECD1BA461BDD467400193FC0 /* icon@2x.png in Resources */,
+				ECD9785D1C2C3A75005EAD7B /* SVWebViewControllerActivitySafari-iPad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,21 +759,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD9785F1C2C3A75005EAD7B /* SVWebViewControllerActivitySafari.m in Sources */,
 				EC4010241BD89DCC00ECC31B /* CSWManager.m in Sources */,
 				EC400FE41BD89D0000ECC31B /* AppDelegate.m in Sources */,
 				EC77D1651BDC445C00561959 /* CSWAssignmentsViewController.m in Sources */,
 				EC4010261BD89DCC00ECC31B /* CSWScheduleTableViewCell.m in Sources */,
+				ECD5D7911C02A5DA003059BF /* CSWDirectorySearchViewController.m in Sources */,
 				EC400FE11BD89D0000ECC31B /* main.m in Sources */,
+				ECD978611C2C3A75005EAD7B /* SVWebViewControllerActivity.m in Sources */,
+				EC7A2F411C076E940043CF6F /* CSWDetailSearchViewController.m in Sources */,
 				ECADDDCE1BEF089100B1235C /* CSWClassViewController.m in Sources */,
+				ECD978581C2C3A75005EAD7B /* SVWebViewController.m in Sources */,
 				EC09F2FD1BE16538005B5DAB /* CSWAssignmentDetailViewController.m in Sources */,
+				EC1AD4541C28C76C0000157F /* CSWReportCardTableViewCell.m in Sources */,
+				ECAD86381C02C429003BFCF4 /* CSWSearchTableViewCell.m in Sources */,
 				EC4010231BD89DCC00ECC31B /* CSWLoginViewController.m in Sources */,
 				EC716E1C1C01001F00D12519 /* CSWMainTabBarViewController.m in Sources */,
 				EC000AD81BFBBC9B00DEF4D0 /* CSWRosterTableViewCell.m in Sources */,
 				EC8EF8801BFA805400516078 /* CSWRosterViewController.m in Sources */,
+				EC1AD44E1C28C68E0000157F /* CSWReportCardsViewController.m in Sources */,
+				ECD978561C2C3A75005EAD7B /* SVModalWebViewController.m in Sources */,
 				EC4010221BD89DCC00ECC31B /* CSWIntroViewController.m in Sources */,
 				EC4010271BD89DCC00ECC31B /* CSWScheduleViewController.m in Sources */,
+				ECBD791E1C542535000883AB /* CSWSettingsViewController.m in Sources */,
 				EC1ECAE61BE0410A002E4BA4 /* CSWAssignmentsTableViewCell.m in Sources */,
+				ECC7D89F1C0663F2007ED0DC /* CSWSearchPopoverViewController.m in Sources */,
 				EC4010281BD89DCC00ECC31B /* KeychainItemWrapper.m in Sources */,
+				ECD9785B1C2C3A75005EAD7B /* SVWebViewControllerActivityChrome.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,20 +821,29 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EC400FE81BD89D0000ECC31B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EC400FE91BD89D0000ECC31B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EC400FED1BD89D0000ECC31B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				EC400FEE1BD89D0000ECC31B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		ECD978361C2C3A75005EAD7B /* SVWebViewController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECD978371C2C3A75005EAD7B /* da */,
+				ECD978381C2C3A75005EAD7B /* de */,
+				ECD978391C2C3A75005EAD7B /* en */,
+				ECD9783A1C2C3A75005EAD7B /* es-ES */,
+				ECD9783B1C2C3A75005EAD7B /* es */,
+				ECD9783C1C2C3A75005EAD7B /* fr */,
+				ECD9783D1C2C3A75005EAD7B /* ja */,
+				ECD9783E1C2C3A75005EAD7B /* pt */,
+				ECD978531C2C3A75005EAD7B /* zh-Hans */,
+				ECD978541C2C3A75005EAD7B /* zh-Hant */,
+			);
+			name = SVWebViewController.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -686,9 +934,11 @@
 			baseConfigurationReference = C67594A747365F4D820ADCD7 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "csw-app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sandrin.matteo.csw-app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sandrin.matteo.cswapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -698,10 +948,13 @@
 			baseConfigurationReference = B3598466DF2F0175804330EC /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "csw-app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sandrin.matteo.csw-app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sandrin.matteo.cswapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5501dd11-122e-4aa1-a151-453598eaa23f";
 			};
 			name = Release;
 		};

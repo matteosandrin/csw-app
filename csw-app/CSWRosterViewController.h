@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CSWManager.h"
 #import "CSWRosterTableViewCell.h"
+#import "CSWDetailSearchViewController.h"
 
 @interface CSWRosterViewController : UITableViewController
 

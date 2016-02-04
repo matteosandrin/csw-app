@@ -23,6 +23,7 @@
     assignments = [NSArray array];
     [self initCurrentDate];
     [self setupUI];
+    [self.tableView setContentOffset:CGPointMake(0, -self.refreshControl.frame.size.height) animated:YES];
     [self refresh];
     
 }
@@ -30,8 +31,8 @@
 -(void) initCurrentDate {
     
     NSCalendar* cal = [NSCalendar currentCalendar];
-    NSDateComponents* comp = [cal components:NSCalendarUnitWeekday fromDate:[NSDate date]];
-    
+    NSDateComponents* comp = [cal components:(NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitDay) fromDate:[NSDate date]];
+//    NSLog(@"hour: %ld",(long)comp.hour);
     switch ([comp weekday]) {
         case 7:
             currentDate = [[NSDate date] dateByAddingTimeInterval:2*60*60*24];
@@ -42,14 +43,19 @@
             
         default:
             currentDate = [NSDate date];
+            if ((comp.hour >= 14 && comp.minute >= 30) || comp.hour >= 15) {
+                currentDate = [[NSDate date] dateByAddingTimeInterval:60*60*24];
+            }
             break;
     }
     
-    NSLog(@"currentDate: %@",currentDate);
+//    NSLog(@"currentDate: %@",currentDate);
     
 }
 
 -(void) setupUI {
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor cloudsColor],
                               NSFontAttributeName: [UIFont sanFranciscoFontWithSize:20]
@@ -119,6 +125,7 @@
     self.refreshControl = refresh;
     [self setRefreshControlTitle:@"Pull to Refresh"];
     [self.refreshControl setTintColor:[UIColor lightCSWBlueColor]];
+
     
 }
 
@@ -186,7 +193,7 @@
         [formatter setDateFormat:@"E, M/d"];
         NSString *stringFromDate = [NSString stringWithFormat:@"Due %@",[formatter stringFromDate:currentDate]];
         [self.dayDueBarButton setTitle:stringFromDate];
-        NSLog(@"%f",self.refreshControl.frame.size.height);
+//        NSLog(@"%f",self.refreshControl.frame.size.height);
         [self.tableView setContentOffset:CGPointMake(0, -self.refreshControl.frame.size.height) animated:YES];
         [self refresh];
     }];
@@ -205,6 +212,9 @@
     [picker.toolbar setBackgroundColor:[UIColor darkCSWBlueColor]];
     
     [picker showActionSheetPicker];
+    
+    [picker.toolbar setBarTintColor:[UIColor darkCSWBlueColor]];
+    [picker.toolbar setBackgroundColor:[UIColor darkCSWBlueColor]];
     
 }
 
@@ -307,45 +317,10 @@
     
     [self.refreshControl beginRefreshing];
     CSWManager *manager = [CSWManager sharedManager];
-    if (currentDate == nil) {
-        currentDate = [NSDate date];
-    }
-    [manager getAssignmentsSummaryForDueDate:currentDate withCompletion:^(NSArray *array) {
-        
-        //        NSMutableArray *classes = [NSMutableArray array];
-        //
-        //        for (NSDictionary *ass in array) {
-        //
-        //            BOOL hasKey = false;
-        //            int i = 0;
-        //
-        //            for (NSDictionary *dict in classes) {
-        //                if ([dict.allValues containsObject:(NSNumber*)ass[@"section_id"]]) {
-        //                    hasKey = true;
-        //                }
-        //            }
-        //
-        //            if (!hasKey) {
-        //                [classes addObject:@{
-        //                                     @"section_id" : (NSNumber*)ass[@"section_id"],
-        //                                     @"title" : (NSNumber*)ass[@"groupname"],
-        //                                     @"assignments" : [NSMutableArray array]
-        //                                     }];
-        //            }
-        //
-        //            for (NSDictionary *dict in classes) {
-        //                if ([dict.allValues containsObject:(NSNumber*)ass[@"section_id"]]) {
-        //                    i = [classes indexOfObject:dict];
-        //                }
-        //            }
-        //
-        //            [(NSMutableArray*)classes[i][@"assignments"] addObject:ass];
-        //
-        //        }
-        //
-        //        classList = [NSArray arrayWithArray:classes];
-        //
-        //        NSLog(@"%@",classes);
+//    if (currentDate == nil) {
+//        currentDate = [NSDate date];
+//    }
+    [manager getAssignmentsSummaryForDueDate:currentDate andSearchMode:1 withCompletion:^  (NSArray *array) {
         
         [self.refreshControl endRefreshing];
         [self setRefreshControlTitle:@"Pull to Refresh"];
@@ -357,6 +332,7 @@
                 [label setText:array[0]];
                 [label setFont:[UIFont sanFranciscoFontWithSize:12]];
                 [label setTextColor:[UIColor darkCSWBlueColor]];
+                [label setBackgroundColor:[UIColor whiteColor]];
                 [label setTextAlignment:NSTextAlignmentCenter];
                 [self.tableView.tableHeaderView addSubview:label];
             }else{
@@ -381,6 +357,7 @@
             [label setText:[NSString stringWithFormat:@"No homework due %@",[formatter stringFromDate:currentDate]]];
             [label setFont:[UIFont sanFranciscoFontWithSize:12]];
             [label setTextColor:[UIColor darkCSWBlueColor]];
+            [label setBackgroundColor:[UIColor whiteColor]];
             [label setTextAlignment:NSTextAlignmentCenter];
             [self.tableView.tableHeaderView addSubview:label];
             assignments = [NSArray array];

@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CSWManager.h"
+#import "CSWAssignmentDetailViewController.h"
+#import "CSWAssignmentsViewController.h"
+#import "CSWDirectorySearchViewController.h"
 
-@interface CSWMainTabBarViewController : UITabBarController
+@interface CSWMainTabBarViewController : UITabBarController <UITabBarControllerDelegate>
+
+
+@property (nonatomic,strong) UIViewController *selectedController;
+
 
 @end

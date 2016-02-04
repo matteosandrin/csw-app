@@ -14,6 +14,8 @@
 
 @implementation CSWMainTabBarViewController
 
+@synthesize selectedController;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -27,13 +29,34 @@
     
     [self.tabBar.items[1] setTitle:@"Homework"];
     
-    // Do any additional setup after loading the view.
+    [self.tabBar.items[2] setImage:[[UIImage imageNamed:@"reportsTabButtonNormal.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [self.tabBar.items[2] setSelectedImage:[[UIImage imageNamed:@"reportsTabButtonSelected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
+    [self.tabBar.items[2] setTitle:@"Reports"];
+    
+    [self.tabBar.items[3] setImage:[[UIImage imageNamed:@"directoryTabButtonNormal.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [self.tabBar.items[3] setSelectedImage:[[UIImage imageNamed:@"directoryTabButtonSelected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
+    [self.tabBar.items[3] setTitle:@"Directory"];
+    
+    self.delegate = self;
+    selectedController = self.viewControllers[0];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//-(void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+//    
+//    if ([selectedController respondsToSelector:@selector(clearResults)]) {
+//        [(CSWDirectorySearchViewController*)selectedController clearResults];
+//    }
+//    NSLog(@"title: %@",selectedController.title);
+//    selectedController = viewController;
+//}
 
 /*
 #pragma mark - Navigation
