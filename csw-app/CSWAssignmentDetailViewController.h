@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FlatUIKit.h"
+#import "CSWManager.h"
 
 @interface CSWAssignmentDetailViewController : UIViewController
 

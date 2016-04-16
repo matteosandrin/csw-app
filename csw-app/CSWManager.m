@@ -201,12 +201,12 @@
     
     NSString *url = [NSString stringWithFormat:@"%@/api/DataDirect/AssignmentCenterAssignments",kBaseLink];
     
-//    NSLog(@"%@",url);
-    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM/dd/yyyy"];
     
     NSString *stringFromDate = [formatter stringFromDate:dueDate];
+#warning just for testing purposes
+//    NSString *stringFromDate = [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:1449674170]];
     
     NSDictionary *params = @{
                              @"persona": @"2",
@@ -217,43 +217,6 @@
                              @"statusList" : @"",
                              @"sectionList" : @""
                              };
-    
-//    completionBlock(@[@{
-//                          @"groupname": @"U.S. Voting and Elections - HIST 340-1",
-//                          @"section_id": @2468087,
-//                          @"assignment_id": @5139929,
-//                          @"short_description": @"1. Read the article on the Nixon/Kennedy Debate. Reflect on the role of media in politics. How does the media help candidates win/lose campaigns.&#160;<br /><br />2. Find 2 political cartoons about 2016 election. Email me the links.&#160;",
-//                          @"date_assignedTicks": @635811552000000000,
-//                          @"date_assigned": @"10/23/2015 12:00 AM",
-//                          @"date_dueTicks": @635815007400000000,
-//                          @"date_due": @"10/26/2015 11:59 PM",
-//                          @"drop_box_late_timeTicks": @599266943400000000,
-//                          @"drop_box_late_time": @"1/1/1900 11:59 PM",
-//                          @"long_description": @"Some useful political cartoon links listed below. Feel free to find/explore your own websites.",
-//                          @"assignment_index_id": @7327839,
-//                          @"assignment_type": @"Homework",
-//                          @"inc_grade_book": @YES,
-//                          @"publish_grade": @YES,
-//                          @"enroll_count": @0,
-//                          @"graded_count": @0,
-//                          @"drop_box_id": NSNull.null,
-//                          @"drop_box_ind": @NO,
-//                          @"has_link": @YES,
-//                          @"has_download": @NO,
-//                          @"assignment_status": @-1,
-//                          @"assessment_ind": @NO,
-//                          @"assessment_id": NSNull.null,
-//                          @"assessment_locked": @NO,
-//                          @"show_report": NSNull.null,
-//                          @"has_grade": @NO,
-//                          @"local_nowTicks": @635813202982130000,
-//                          @"local_now": @"10/24/2015 9:51 PM",
-//                          @"major": @NO,
-//                          @"discussion_ind": @NO,
-//                          @"share_discussion": @YES,
-//                          @"show_discussion_ind": @NO,
-//                          @"allow_discussion_attachment": @YES
-//                          }]); //testing puroposes
     
     [manager GET:url
       parameters:params
@@ -484,6 +447,145 @@
               success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
 //                  NSLog(@"%@",responseObject);
 //                  NSLog(@"%@",operation.response.URL);
+                  self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
+                  completionBlock(@[responseObject]);
+              }
+              failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+                  self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
+                  completionBlock(@[error.localizedDescription]);
+              }];
+    
+}
+
+-(void) setAssignmentStatusWithId:(NSString*)assignmentId andStatusCode:(int)code {
+    
+    //[in progress] **(0)**
+    //[completed] **(1)**
+    //[overdue/not yet done] **(2)**
+    
+    [self getHtmlPageForAuthTokenWithCompletion:^(NSString *string) {
+        
+        if (string.length > 0) {
+    
+//            AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
+//            [self.manager.requestSerializer setValue:string forHTTPHeaderField:@"requestverificationtoken"];
+            [self.manager.requestSerializer setValue:@"https://csw.myschoolapp.com" forHTTPHeaderField:@"Origin"];
+            [self.manager.requestSerializer setValue:@"https://csw.myschoolapp.com/app/student" forHTTPHeaderField:@"Referer"];
+            [self.manager.requestSerializer setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36" forHTTPHeaderField:@"User-Agent"];
+//            [self.manager setRequestSerializer:serializer];
+            
+            NSString *url = [NSString stringWithFormat:@"%@/api/assignment2/assignmentstatusupdate",kBaseLink];
+            
+//            NSString *url = [NSString stringWithFormat:@"%@/api/assignment2/assignmentstatusupdate?format=json",kBaseLink];
+            NSLog(@"url: %@",url);
+        
+//            NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+//            for (NSHTTPCookie *each in cookieStorage.cookies) {
+//                [cookieStorage deleteCookie:each];
+//            }
+
+    
+//            NSLog(@"%@",cookieStorage);
+
+            
+            NSDictionary *params = @{
+                                     @"assignmentIndexId":assignmentId,
+                                     @"assignmentStatus":[NSString stringWithFormat:@"%d",code]
+                                     };
+            
+            NSLog(@"params: %@",params);
+            NSLog(@"headers: %@",self.manager.requestSerializer.HTTPRequestHeaders);
+            
+            [manager POST:url
+                    parameters:params
+                       success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+                           NSLog(@"Assignment %@ was successfully set to %d",assignmentId,code);
+                           NSLog(@"%@",operation.responseString);
+                       }
+                       failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+                           NSLog(@"error: %@",error.localizedDescription);
+                           NSLog(@"%@",operation.request.URL);
+                           NSLog(@"%@",operation.responseString);
+                       }];
+        }
+    }];
+
+}
+
+-(void) getHtmlPageForAuthTokenWithCompletion:(StringResponseBlock)completionBlock{
+    
+    self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    NSMutableArray *contentTypes = [NSMutableArray arrayWithArray:[self.manager.responseSerializer.acceptableContentTypes allObjects]];
+//    [contentTypes addObject:@"text/html"];
+//    self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:contentTypes];
+
+    [self.manager GET:@"https://csw.myschoolapp.com/app/student" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        NSLog(@"response: %@",[operation.responseString componentsSeparatedByString:@"\n"]);
+        NSArray *lines = [operation.responseString componentsSeparatedByString:@"\n"];
+        NSString *result = @"";
+        for (NSString *l in lines) {
+            if ([l rangeOfString:@"RequestVerificationToken"].location != NSNotFound) {
+                for (NSString* p in [l componentsSeparatedByString:@" "]) {
+                    if ([p rangeOfString:@"value"].location != NSNotFound) {
+                        result = [p stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+                        result = [result stringByReplacingOccurrencesOfString:@"value=" withString:@""];
+                    }
+                }
+            }
+        }
+        NSLog(@"token: %@",result);
+        self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        completionBlock(result);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error: %@",error.localizedDescription);
+        self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        completionBlock(@"");
+    }];
+    
+}
+
+-(void) getMealsListWithCompletionBlock:(ArrayResponseBlock)completionBlock{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/api/download/forresourceboard/?format=json&categoryId=16285&itemCount=0",kBaseLink];
+    
+    [manager GET:url
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             NSLog(@"success");
+             NSArray *result = (NSArray*)responseObject;
+             NSLog(@"%@",responseObject);
+             completionBlock(result);
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"failure: %@",error.localizedDescription);
+             if (completionBlock) {
+                 completionBlock(@[error.localizedDescription]);
+             }
+         }];
+    
+
+    
+}
+
+-(void) getMealPdfFileWithUrl:(NSString *)mealUrl andCompletionBlock:(ArrayResponseBlock)completionBlock{
+    
+    NSMutableArray *contentTypes = [NSMutableArray arrayWithArray:[self.manager.responseSerializer.acceptableContentTypes allObjects]];
+    [contentTypes addObject:@"application/pdf"];
+    self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:contentTypes];
+    self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@",kBaseLink,mealUrl];
+    
+    
+    [self.manager GET:url
+           parameters:nil
+              success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+                  //                  NSLog(@"%@",responseObject);
+                  //                  NSLog(@"%@",operation.response.URL);
                   self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
                   completionBlock(@[responseObject]);
               }

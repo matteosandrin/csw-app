@@ -80,7 +80,51 @@
     
     NSLog(@"dueTicks: %@",dueDate);
     
+    UIBarButtonItem *statusButton;
     
+    switch ([assignment[@"assignment_status"] intValue]) {
+        case 0:
+            statusButton =
+            [[UIBarButtonItem alloc] initWithTitle:@"In Progress"
+                                             style:UIBarButtonItemStylePlain
+                                            target:self
+                                            action:@selector(showSelector)];
+            break;
+        case 1:
+            statusButton =
+            [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                             style:UIBarButtonItemStylePlain
+                                            target:self
+                                            action:@selector(showSelector)];
+            break;
+        case 2:
+            statusButton =
+            [[UIBarButtonItem alloc] initWithTitle:@"Overdue"
+                                             style:UIBarButtonItemStylePlain
+                                            target:self
+                                            action:@selector(showSelector)];
+            break;
+        case -1:
+            statusButton =
+            [[UIBarButtonItem alloc] initWithTitle:@"To-do"
+                                             style:UIBarButtonItemStylePlain
+                                            target:self
+                                            action:@selector(showSelector)];
+            break;
+        case 4:
+            statusButton =
+            [[UIBarButtonItem alloc] initWithTitle:@"Graded"
+                                             style:UIBarButtonItemStylePlain
+                                            target:self
+                                            action:@selector(showSelector)];
+            break;
+        default:
+            break;
+    }
+    [statusButton setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor cloudsColor],
+                                          NSFontAttributeName: [UIFont sanFranciscoFontWithSize:13]
+                                           } forState:UIControlStateNormal];
+    [[self navigationItem] setRightBarButtonItem:statusButton];
     
     
     
@@ -98,6 +142,37 @@
     }
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, scrollViewHeight);
     NSLog(@"%f",scrollViewHeight);
+    
+}
+
+-(void) showSelector{
+    
+    CSWManager *manager = [CSWManager sharedManager];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Assignment Status" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[[self navigationItem] rightBarButtonItem] setTitle:@"Done"];
+        [manager setAssignmentStatusWithId:assignment[@"assignment_index_id"] andStatusCode:1];
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"In Progress" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[[self navigationItem] rightBarButtonItem] setTitle:@"In Progress"];
+        [manager setAssignmentStatusWithId:assignment[@"assignment_index_id"] andStatusCode:0];
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"To-do" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[[self navigationItem] rightBarButtonItem] setTitle:@"To-do"];
+        [manager setAssignmentStatusWithId:assignment[@"assignment_index_id"] andStatusCode:-1];
+    }]];
+    
+//    [alertController addAction:[UIAlertAction actionWithTitle:@"Overdue" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        [[[self navigationItem] rightBarButtonItem] setTitle:@"Overdue"];
+//        [manager setAssignmentStatusWithId:assignment[@"assignment_index_id"] andStatusCode:2];
+//    }]];
+
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    
+    [self presentViewController:alertController animated:true completion:nil];
     
 }
 

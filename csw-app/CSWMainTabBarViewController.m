@@ -34,10 +34,15 @@
     
     [self.tabBar.items[2] setTitle:@"Reports"];
     
-    [self.tabBar.items[3] setImage:[[UIImage imageNamed:@"directoryTabButtonNormal.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    [self.tabBar.items[3] setSelectedImage:[[UIImage imageNamed:@"directoryTabButtonSelected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [self.tabBar.items[3] setImage:[[UIImage imageNamed:@"mealsTabButtonNormal.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [self.tabBar.items[3] setSelectedImage:[[UIImage imageNamed:@"mealsTabButtonSelected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
-    [self.tabBar.items[3] setTitle:@"Directory"];
+    [self.tabBar.items[3] setTitle:@"Meals"];
+    
+    [self.tabBar.items[4] setImage:[[UIImage imageNamed:@"directoryTabButtonNormal.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [self.tabBar.items[4] setSelectedImage:[[UIImage imageNamed:@"directoryTabButtonSelected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
+    [self.tabBar.items[4] setTitle:@"Directory"];
     
     self.delegate = self;
     selectedController = self.viewControllers[0];

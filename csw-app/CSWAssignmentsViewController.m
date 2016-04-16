@@ -208,8 +208,8 @@
                                     NSParagraphStyleAttributeName : labelParagraphStyle
                                     };
     picker.toolbar.translucent = NO;
-    [picker.toolbar setBarTintColor:[UIColor darkCSWBlueColor]];
-    [picker.toolbar setBackgroundColor:[UIColor darkCSWBlueColor]];
+//    [picker.toolbar setBarTintColor:[UIColor darkCSWBlueColor]];
+//    [picker.toolbar setBackgroundColor:[UIColor darkCSWBlueColor]];
     
     [picker showActionSheetPicker];
     
@@ -324,7 +324,7 @@
         
         [self.refreshControl endRefreshing];
         [self setRefreshControlTitle:@"Pull to Refresh"];
-        
+        NSLog(@"%@",array);
         if (array.count > 0) {
             if ([array[0] isKindOfClass:[NSString class]]) {
                 self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 50)];

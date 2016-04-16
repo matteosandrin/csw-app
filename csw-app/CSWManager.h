@@ -14,6 +14,7 @@ typedef void (^JSONResponseBlock)(NSDictionary* json);
 typedef void (^ArrayResponseBlock)(NSArray* array);
 typedef void (^BoolResponseBlock)(BOOL status);
 typedef void (^ImageResponseBlock)(UIImage* image);
+typedef void (^StringResponseBlock)(NSString* string);
 #define kBaseLink @"https://csw.myschoolapp.com"
 
 @interface CSWManager : NSObject
@@ -33,6 +34,10 @@ typedef void (^ImageResponseBlock)(UIImage* image);
 -(void) getPersonWithId:(NSString*)num andCompletionBlock:(JSONResponseBlock)completionBlock;
 -(void) getReportCardsWithCompletionBlock:(ArrayResponseBlock)completionBlock;
 -(void) getReportPdfFileWithReportId:(NSString*)reportId andUserId:(NSString*)userId andSchoolYear:(NSString*)schoolYear andCompletionBlock:(ArrayResponseBlock)completionBlock;
+-(void) getMealsListWithCompletionBlock:(ArrayResponseBlock)completionBlock;
+-(void) getMealPdfFileWithUrl:(NSString*)mealUrl andCompletionBlock:(ArrayResponseBlock)completionBlock;
+
+-(void) setAssignmentStatusWithId:(NSString*)assignmentId andStatusCode:(int)code; 
 -(void) deleteCredentials;
 
 

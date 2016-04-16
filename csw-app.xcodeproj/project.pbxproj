@@ -46,6 +46,9 @@
 		ECAD86341C02C3EA003BFCF4 /* CSWSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECAD86331C02C3EA003BFCF4 /* CSWSearchTableViewCell.xib */; };
 		ECAD86381C02C429003BFCF4 /* CSWSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAD86371C02C429003BFCF4 /* CSWSearchTableViewCell.m */; };
 		ECADDDCE1BEF089100B1235C /* CSWClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECADDDCD1BEF089100B1235C /* CSWClassViewController.m */; };
+		ECBA7A041CC2B8CA00BD86F5 /* CSWMealsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA7A031CC2B8CA00BD86F5 /* CSWMealsViewController.m */; };
+		ECBA7A071CC2C2D300BD86F5 /* mealsTabButtonSelected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECBA7A051CC2C2D300BD86F5 /* mealsTabButtonSelected@3x.png */; };
+		ECBA7A081CC2C2D300BD86F5 /* mealsTabButtonNormal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECBA7A061CC2C2D300BD86F5 /* mealsTabButtonNormal@3x.png */; };
 		ECBD791E1C542535000883AB /* CSWSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBD791D1C542535000883AB /* CSWSettingsViewController.m */; };
 		ECC7D8991C063C43007ED0DC /* directoryTabButtonNormal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC7D8971C063C43007ED0DC /* directoryTabButtonNormal@3x.png */; };
 		ECC7D89A1C063C43007ED0DC /* directoryTabButtonSelected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC7D8981C063C43007ED0DC /* directoryTabButtonSelected@3x.png */; };
@@ -153,6 +156,10 @@
 		ECAD86371C02C429003BFCF4 /* CSWSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWSearchTableViewCell.m; sourceTree = "<group>"; };
 		ECADDDCC1BEF089100B1235C /* CSWClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWClassViewController.h; sourceTree = "<group>"; };
 		ECADDDCD1BEF089100B1235C /* CSWClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWClassViewController.m; sourceTree = "<group>"; };
+		ECBA7A021CC2B8CA00BD86F5 /* CSWMealsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWMealsViewController.h; sourceTree = "<group>"; };
+		ECBA7A031CC2B8CA00BD86F5 /* CSWMealsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWMealsViewController.m; sourceTree = "<group>"; };
+		ECBA7A051CC2C2D300BD86F5 /* mealsTabButtonSelected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mealsTabButtonSelected@3x.png"; sourceTree = "<group>"; };
+		ECBA7A061CC2C2D300BD86F5 /* mealsTabButtonNormal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mealsTabButtonNormal@3x.png"; sourceTree = "<group>"; };
 		ECBD791C1C542535000883AB /* CSWSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWSettingsViewController.h; sourceTree = "<group>"; };
 		ECBD791D1C542535000883AB /* CSWSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWSettingsViewController.m; sourceTree = "<group>"; };
 		ECC7D8971C063C43007ED0DC /* directoryTabButtonNormal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "directoryTabButtonNormal@3x.png"; sourceTree = "<group>"; };
@@ -375,6 +382,7 @@
 				ECD5D78E1C02A59D003059BF /* Roster */,
 				ECD5D7921C02A5E0003059BF /* Search */,
 				EC1AD44B1C28C6400000157F /* Report Cards */,
+				ECBA7A011CC2B87900BD86F5 /* Meals */,
 				ECBD79181C5424CF000883AB /* Settings */,
 				EC716E1A1C01001F00D12519 /* CSWMainTabBarViewController.h */,
 				EC716E1B1C01001F00D12519 /* CSWMainTabBarViewController.m */,
@@ -398,6 +406,8 @@
 		EC40102E1BD89E0A00ECC31B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				ECBA7A051CC2C2D300BD86F5 /* mealsTabButtonSelected@3x.png */,
+				ECBA7A061CC2C2D300BD86F5 /* mealsTabButtonNormal@3x.png */,
 				ECA33E9F1C541A70003FC91A /* settingsButton@3x.png */,
 				ECFAD2601C3EED3A001AE805 /* reportsTabButtonSelected@3x.png */,
 				ECFAD2611C3EED3A001AE805 /* reportsTabButtonNormal@3x.png */,
@@ -466,6 +476,15 @@
 				ECAD86371C02C429003BFCF4 /* CSWSearchTableViewCell.m */,
 			);
 			name = "Search Cell";
+			sourceTree = "<group>";
+		};
+		ECBA7A011CC2B87900BD86F5 /* Meals */ = {
+			isa = PBXGroup;
+			children = (
+				ECBA7A021CC2B8CA00BD86F5 /* CSWMealsViewController.h */,
+				ECBA7A031CC2B8CA00BD86F5 /* CSWMealsViewController.m */,
+			);
+			name = Meals;
 			sourceTree = "<group>";
 		};
 		ECBD79181C5424CF000883AB /* Settings */ = {
@@ -677,6 +696,7 @@
 				EC77D1621BDC41EE00561959 /* assignmentsTabButtonNormal@3x.png in Resources */,
 				EC400FEF1BD89D0000ECC31B /* LaunchScreen.storyboard in Resources */,
 				ECD9785E1C2C3A75005EAD7B /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */,
+				ECBA7A081CC2C2D300BD86F5 /* mealsTabButtonNormal@3x.png in Resources */,
 				EC000ADE1BFBC7EE00DEF4D0 /* defaultThumb@2x.png in Resources */,
 				EC1ECAE31BE040F7002E4BA4 /* CSWAssignmentsTableViewCell.xib in Resources */,
 				EC77D15D1BDC3D8F00561959 /* scheduleTabButtonSelected@3x.png in Resources */,
@@ -695,6 +715,7 @@
 				ECC7D89A1C063C43007ED0DC /* directoryTabButtonSelected@3x.png in Resources */,
 				ECFAD2621C3EED3A001AE805 /* reportsTabButtonSelected@3x.png in Resources */,
 				ECC7D8991C063C43007ED0DC /* directoryTabButtonNormal@3x.png in Resources */,
+				ECBA7A071CC2C2D300BD86F5 /* mealsTabButtonSelected@3x.png in Resources */,
 				ECAD86341C02C3EA003BFCF4 /* CSWSearchTableViewCell.xib in Resources */,
 				EC4010251BD89DCC00ECC31B /* CSWScheduleCell.xib in Resources */,
 				EC40102A1BD89DCC00ECC31B /* SF-UI-Display-Light.ttf in Resources */,
@@ -780,6 +801,7 @@
 				EC1AD44E1C28C68E0000157F /* CSWReportCardsViewController.m in Sources */,
 				ECD978561C2C3A75005EAD7B /* SVModalWebViewController.m in Sources */,
 				EC4010221BD89DCC00ECC31B /* CSWIntroViewController.m in Sources */,
+				ECBA7A041CC2B8CA00BD86F5 /* CSWMealsViewController.m in Sources */,
 				EC4010271BD89DCC00ECC31B /* CSWScheduleViewController.m in Sources */,
 				ECBD791E1C542535000883AB /* CSWSettingsViewController.m in Sources */,
 				EC1ECAE61BE0410A002E4BA4 /* CSWAssignmentsTableViewCell.m in Sources */,
