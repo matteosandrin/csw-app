@@ -1,11 +1,8 @@
-# The Cambridge School of Weston App
+# The Cambridge School of Weston - iOS App
 
-<figure>
-	<p align="center">
-  		<img src="https://github.com/matteosandrin/csw-app/raw/master/images/img03.png" style="width:30%">
-  		<figcaption style="text-align:center"><i>First mockup of the CSW App.</i></figcaption>
-  	<p/>
-</figure>
+<p align="center">
+	<img width="150" src="https://github.com/matteosandrin/csw-app/raw/master/images/img03.png" style="border-radius: 25px">
+</p>
 
 ### 1. The Idea
 
@@ -19,12 +16,13 @@ However, a significant number of people were skeptical of the feasibility of thi
 
 Confident in my abilities, I set out to mockup how the app was going to look. Being a programmer by heart and designer by necessity, my design was not very elaborate, and instead remained bare-bones and strictly functional.
 
-<figure>
-	<p align="center">
-	  <img src="https://github.com/matteosandrin/csw-app/raw/master/images/img01.png" style="width:50%">
-	  <figcaption style="text-align:center"><i>First mockup of the CSW App.</i></figcaption>
-	</p>
-</figure>
+
+<p align="center">
+  <img width="200" src="https://github.com/matteosandrin/csw-app/raw/master/images/img01.png">
+  <br>
+  <i>First mockup of the CSW App.</i>
+</p>
+
 
 I decided from the very beginning that the first release of the App would be limited to three well defined functionalities: scheduling, homework and directories. I intentionally limited myself at first, because I knew that, if I was to achieve any kind of traction in the student body, the App needed to work, to work well, and to work better than the current solution.
 
@@ -37,12 +35,11 @@ After the first one, the process to discover each subsequent endpoint was very s
 
 The process of designing an interface is crucial and often overlooked. Having an approachable and cohesive design was the only way to convince my users that my product was actually useful. The final design is very close to the early mockups, after hours of fighting with the interface editor. I managed to deliver a usable and arguably pleasing interface, on which anyone has yet to complain.  
 
-<figure>
-	<p align="center">
-	  <img src="https://github.com/matteosandrin/csw-app/raw/master/images/img02.png" style="width:50%">
-	  <figcaption style="text-align:center"><i>Final design of the CSW App.</i></figcaption>
-	<p>
-</figure>
+<p align="center">
+  <img width="200" src="https://github.com/matteosandrin/csw-app/raw/master/images/img02.png">
+  <br>
+  <i>Final design of the CSW App.</i>
+<p>
 
 ### 5. The Programming
 
