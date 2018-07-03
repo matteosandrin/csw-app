@@ -63,22 +63,26 @@
     
     self.titleLabel.text = (NSString*)assignment[@"groupname"];
     
-    long long due_ticks = [(NSNumber*)assignment[@"date_dueTicks"] longLongValue];
-    long long due_epoch = (due_ticks - 621355968000000000) / 10000000;
-    
-    NSDate *dueDate = [NSDate dateWithTimeIntervalSince1970:due_epoch];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]];
-    [formatter setDateFormat:@"EEEE MM/dd"];
-    
-    NSString *dueString = [NSString stringWithFormat:@"Due on %@ at ",[formatter stringFromDate:dueDate]];
-    [formatter setDateFormat:@"HH:mm a"];
-    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
-    dueString = [dueString stringByAppendingString:[formatter stringFromDate:dueDate]];
-    
-    self.dueLabel.text = dueString;
-    
-    NSLog(@"dueTicks: %@",dueDate);
+    if ([assignment.allKeys containsObject:@"DateDue"]) {
+        self.dueLabel.text = [NSString stringWithFormat:@"Due: %@",assignment[@"DateDue"]];
+    }else{
+        long long due_ticks = [(NSNumber*)assignment[@"date_dueTicks"] longLongValue];
+        long long due_epoch = (due_ticks - 621355968000000000) / 10000000;
+        
+        NSDate *dueDate = [NSDate dateWithTimeIntervalSince1970:due_epoch];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        //    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]];
+        [formatter setDateFormat:@"EEEE MM/dd"];
+        
+        NSString *dueString = [NSString stringWithFormat:@"Due on %@ at ",[formatter stringFromDate:dueDate]];
+        [formatter setDateFormat:@"HH:mm a"];
+        [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+        dueString = [dueString stringByAppendingString:[formatter stringFromDate:dueDate]];
+        
+        self.dueLabel.text = dueString;
+        
+        NSLog(@"dueTicks: %@",dueDate);
+    }
     
     UIBarButtonItem *statusButton;
     

@@ -24,9 +24,9 @@
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
-    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
-        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
-    }
+//    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+//        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+//    }
     
     return YES;
 }
@@ -69,104 +69,104 @@
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     
-    NSLog(@"background refresh ");
-    
-    CSWManager *manager = [CSWManager sharedManager];
-    
-    if ([manager checkCredentialsStorage]) {
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSArray *savedHomework = [defaults objectForKey:@"savedHomework"];
-        
-//        savedHomework = nil; //testing purposes
-        
-        if (savedHomework == nil) {
-            savedHomework = [NSArray array];
-        }
-
-//        NSLog(@"savedHW: %@",savedHomework);
-        
-        ArrayResponseBlock block = ^(NSArray *array){
-            NSLog(@"getting homework");
-            if (array.count > 0) {
-                if (![array[0] isKindOfClass:[NSString class]]) {
-                    NSLog(@"no error, all clear");
-                    NSMutableArray *newHomework = [NSMutableArray array];
-                    
-                    BOOL shouldSaveHomework = false;
-                    
-                    for (NSDictionary *newAssignment in array) {
-                        NSNumber *id_num = newAssignment[@"assignment_id"];
-                        [newHomework addObject:id_num];
-                    }
-                    
-                    for (NSDictionary *new in array) {
-                        NSMutableDictionary *newAssignment = [NSMutableDictionary dictionaryWithDictionary:new];
-//                        NSLog(@"assignment: %@",newAssignment);
-                        NSNumber *newId = newAssignment[@"assignment_id"];
-                        if (![savedHomework containsObject:newId]) {
-                            NSLog(@"NEW ONE");
-                            
-                            NSString *name = [newAssignment[@"groupname"] componentsSeparatedByString:@"-"][0];
-                            NSString *desc = [NSString stringWithFormat:@"%@: New assignment",name];
-                            
-                            for (NSString *key in [newAssignment allKeys]) {
-                                if ([newAssignment[key] isKindOfClass:[NSNull class]]) {
-                                    newAssignment[key] = nil;
-                                }
-                            }
-                            
-                            if ([[newAssignment allKeys] containsObject:@"short_description"]) {
-                                NSString *shortDesc = newAssignment[@"short_description"];
-                                if (shortDesc != nil && shortDesc.length > 0) {
-                                    desc = [NSString stringWithFormat:@"%@: %@",name,shortDesc];
-                                }
-                                
-                            }
-                            NSLog(@"assignment: %@",newAssignment);
-                            UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-                            localNotification.fireDate = [NSDate date];
-                            localNotification.alertBody = [[[NSAttributedString alloc] initWithData:[desc dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil] string];
-                            localNotification.timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
-                            localNotification.soundName = UILocalNotificationDefaultSoundName;
-                            localNotification.applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
-                            localNotification.userInfo = newAssignment;
-                            [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-                            shouldSaveHomework = true;
-                        }
-                        [newHomework addObject:newId];
-                    }
-                    
-                    if (shouldSaveHomework) {
-                        [defaults setObject:newHomework forKey:@"savedHomework"];
-                    }
-                    
-                }else{
-                    NSLog(@"error: %@",array[0]);
-                }
-            }
-            completionHandler(UIBackgroundFetchResultNewData);
-            
-        };
-        
-        [manager validateCookiesStatusWithCompletion:^(BOOL status) {
-            if (status) {
-                NSLog(@"status: good cookies");
-                [manager getAssignmentsSummaryForDueDate:[NSDate date] andSearchMode:2 withCompletion:block];
-            }else{
-                NSLog(@"status: bad cookies");
-                NSDictionary *cred = [manager getCredentials];
-                [manager loginWithUsername:cred[@"username"]
-                               andPassword:cred[@"password"]
-                             andCompletion:^(NSArray *array) {
-                                 NSLog(@"logged in");
-                                 [manager getAssignmentsSummaryForDueDate:[NSDate date] andSearchMode:2 withCompletion:block];
-                             }];
-            }
-        }];
-    }else{
-        completionHandler(UIBackgroundFetchResultNoData);
-    }
+//    NSLog(@"background refresh ");
+//    
+//    CSWManager *manager = [CSWManager sharedManager];
+//    
+//    if ([manager checkCredentialsStorage]) {
+//        
+//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//        NSArray *savedHomework = [defaults objectForKey:@"savedHomework"];
+//        
+////        savedHomework = nil; //testing purposes
+//        
+//        if (savedHomework == nil) {
+//            savedHomework = [NSArray array];
+//        }
+//
+////        NSLog(@"savedHW: %@",savedHomework);
+//        
+//        ArrayResponseBlock block = ^(NSArray *array){
+//            NSLog(@"getting homework");
+//            if (array.count > 0) {
+//                if (![array[0] isKindOfClass:[NSString class]]) {
+//                    NSLog(@"no error, all clear");
+//                    NSMutableArray *newHomework = [NSMutableArray array];
+//                    
+//                    BOOL shouldSaveHomework = false;
+//                    
+//                    for (NSDictionary *newAssignment in array) {
+//                        NSNumber *id_num = newAssignment[@"assignment_id"];
+//                        [newHomework addObject:id_num];
+//                    }
+//                    
+//                    for (NSDictionary *new in array) {
+//                        NSMutableDictionary *newAssignment = [NSMutableDictionary dictionaryWithDictionary:new];
+////                        NSLog(@"assignment: %@",newAssignment);
+//                        NSNumber *newId = newAssignment[@"assignment_id"];
+//                        if (![savedHomework containsObject:newId]) {
+//                            NSLog(@"NEW ONE");
+//                            
+//                            NSString *name = [newAssignment[@"groupname"] componentsSeparatedByString:@"-"][0];
+//                            NSString *desc = [NSString stringWithFormat:@"%@: New assignment",name];
+//                            
+//                            for (NSString *key in [newAssignment allKeys]) {
+//                                if ([newAssignment[key] isKindOfClass:[NSNull class]]) {
+//                                    newAssignment[key] = nil;
+//                                }
+//                            }
+//                            
+//                            if ([[newAssignment allKeys] containsObject:@"short_description"]) {
+//                                NSString *shortDesc = newAssignment[@"short_description"];
+//                                if (shortDesc != nil && shortDesc.length > 0) {
+//                                    desc = [NSString stringWithFormat:@"%@: %@",name,shortDesc];
+//                                }
+//                                
+//                            }
+//                            NSLog(@"assignment: %@",newAssignment);
+//                            UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+//                            localNotification.fireDate = [NSDate date];
+//                            localNotification.alertBody = [[[NSAttributedString alloc] initWithData:[desc dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil] string];
+//                            localNotification.timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
+//                            localNotification.soundName = UILocalNotificationDefaultSoundName;
+//                            localNotification.applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
+//                            localNotification.userInfo = newAssignment;
+//                            [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+//                            shouldSaveHomework = true;
+//                        }
+//                        [newHomework addObject:newId];
+//                    }
+//                    
+//                    if (shouldSaveHomework) {
+//                        [defaults setObject:newHomework forKey:@"savedHomework"];
+//                    }
+//                    
+//                }else{
+//                    NSLog(@"error: %@",array[0]);
+//                }
+//            }
+//            completionHandler(UIBackgroundFetchResultNewData);
+//            
+//        };
+//        
+//        [manager validateCookiesStatusWithCompletion:^(BOOL status) {
+//            if (status) {
+//                NSLog(@"status: good cookies");
+//                [manager getAssignmentsSummaryForDueDate:[NSDate date] andSearchMode:2 withCompletion:block];
+//            }else{
+//                NSLog(@"status: bad cookies");
+//                NSDictionary *cred = [manager getCredentials];
+//                [manager loginWithUsername:cred[@"username"]
+//                               andPassword:cred[@"password"]
+//                             andCompletion:^(NSArray *array) {
+//                                 NSLog(@"logged in");
+//                                 [manager getAssignmentsSummaryForDueDate:[NSDate date] andSearchMode:2 withCompletion:block];
+//                             }];
+//            }
+//        }];
+//    }else{
+//        completionHandler(UIBackgroundFetchResultNoData);
+//    }
 }
 
 //-(void) application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {

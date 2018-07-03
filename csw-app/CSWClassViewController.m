@@ -32,7 +32,17 @@
                     NSLog(@"%@",array[0]);
                     [self processErrorWithString:array[0]];
                 }else{
-                    self.class_data = (NSDictionary*)array[0];
+                    NSMutableDictionary *classData = [NSMutableDictionary dictionaryWithDictionary:(NSDictionary*)array[0]];
+                    NSLog(@"classdata: %@",class_data);
+                    if ([self.class_data.allKeys containsObject:@"cumgrade"]) {
+                        if (![self.class_data[@"cumgrade"]  isEqual: @"<null>"] && ![self.class_data[@"cumgrade"] isKindOfClass:[NSNull class]]) {
+                            classData[@"cumgrade"] = self.class_data[@"cumgrade"];
+                            classData[@"markingperiodid"] = self.class_data[@"markingperiodid"];
+                            hasGrade = true;
+                            NSLog(@"grade: %@ %@",self.class_data[@"cumgrade"],[self.class_data[@"cumgrade"] class]);
+                        }   
+                    }
+                    self.class_data = classData;
                     [self setupUI];
                     [self stopActivityIndicator];
                 }
@@ -42,10 +52,7 @@
         }else{
             [self processErrorWithString:@"Oops! No data was found for this class."];
         }
-        
-        
-        
-        
+    
     }];
     
 }
@@ -82,7 +89,7 @@
 //    self.descriptionTextView.layer.cornerRadius = 15.0;
     
     NSString *htmlString = [NSString stringWithFormat:@"%@",(NSString*)class_data[@"Description"]];
-    NSLog(@"desc: %@",htmlString);
+//    NSLog(@"desc: %@",htmlString);
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType} documentAttributes:nil error:nil];
     [attributedString addAttribute:NSFontAttributeName value:[UIFont sanFranciscoFontWithSize:20] range:NSMakeRange(0, attributedString.length)];
@@ -97,7 +104,30 @@
     self.rosterButton.shadowColor = [UIColor darkCSWBlueColor];
     self.rosterButton.buttonColor = [UIColor lightCSWBlueColor];
     
+    self.gradesButton.cornerRadius = 10.0f;
+    self.gradesButton.shadowHeight = 3.0f;
+    self.gradesButton.shadowColor = [UIColor darkCSWBlueColor];
+    self.gradesButton.buttonColor = [UIColor lightCSWBlueColor];
+    
+    self.homeworkButton.cornerRadius = 10.0f;
+    self.homeworkButton.shadowHeight = 3.0f;
+    self.homeworkButton.shadowColor = [UIColor darkCSWBlueColor];
+    self.homeworkButton.buttonColor = [UIColor lightCSWBlueColor];
+    
+    
+    if (!hasGrade) {
+        self.hideGradesConstraint.constant = -self.gradesButton.frame.size.height;
+        [self.view setNeedsLayout];
+    }
+    
     [self adjustScrollView];
+    
+    UIBarButtonItem *newBackButton =
+    [[UIBarButtonItem alloc] initWithTitle:@"Back  "
+                                     style:UIBarButtonItemStylePlain
+                                    target:nil
+                                    action:nil];
+    [[self navigationItem] setBackBarButtonItem:newBackButton];
 
     
 }
@@ -138,9 +168,17 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    CSWRosterViewController *destination = (CSWRosterViewController*)[segue destinationViewController];
-    
-    destination.classId = [(NSNumber*)class_data[@"Id"] stringValue];
+    if ([segue.identifier isEqual:@"pushToRoster"]) {
+        CSWRosterViewController *destination = (CSWRosterViewController*)[segue destinationViewController];
+        destination.classId = [(NSNumber*)class_data[@"Id"] stringValue];
+    }else if ([segue.identifier isEqual:@"pushToGradeBook"]){
+        CSWGradeBookViewController *destination = (CSWGradeBookViewController*)[segue destinationViewController];
+        destination.class_data = self.class_data;
+    }else if ([segue.identifier isEqualToString:@"pushToHomework"]){
+        CSWClassAssignmentViewController *destination = (CSWClassAssignmentViewController*)[segue destinationViewController];
+        destination.classId = [(NSNumber*)class_data[@"Id"] stringValue];
+        destination.className = (NSString*)class_data[@"GroupName"];
+    }
     
 }
 

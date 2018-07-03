@@ -23,6 +23,7 @@ typedef void (^StringResponseBlock)(NSString* string);
 
 -(BOOL) checkCredentialsStorage;
 -(NSDictionary*) getCredentials;
+-(void) getUserInfo;
 -(void) loginWithUsername:(NSString*)username andPassword:(NSString*)password andCompletion:(ArrayResponseBlock)completionBlock;
 -(void) validateCookiesStatusWithCompletion:(BoolResponseBlock)completionBlock;
 -(void) getScheduleForDate:(NSDate*)date withCompletion:(ArrayResponseBlock)completionBlock;
@@ -36,6 +37,10 @@ typedef void (^StringResponseBlock)(NSString* string);
 -(void) getReportPdfFileWithReportId:(NSString*)reportId andUserId:(NSString*)userId andSchoolYear:(NSString*)schoolYear andCompletionBlock:(ArrayResponseBlock)completionBlock;
 -(void) getMealsListWithCompletionBlock:(ArrayResponseBlock)completionBlock;
 -(void) getMealPdfFileWithUrl:(NSString*)mealUrl andCompletionBlock:(ArrayResponseBlock)completionBlock;
+-(void) getModStructureForUserId:(NSString*)userId andCompletionBlock:(ArrayResponseBlock)completionBlock;
+-(void) getGradeInfoForUserId:(NSString*)userId andModId:(NSString*)modId andCompletionBlock:(ArrayResponseBlock)completionBlock;
+-(void) getGradeBookForUserId:(NSString*)userId andSectionId:(NSString*)sectionId andPeriodId:(NSString*)periodId andCompletionBlock:(ArrayResponseBlock)completionBlock;
+- (void) getAssignmentsSummaryForClass:(NSString*)sectionId onlyActive:(BOOL)isOnlyActive andCompletionBlock:(ArrayResponseBlock)completionBlock;
 
 -(void) setAssignmentStatusWithId:(NSString*)assignmentId andStatusCode:(int)code; 
 -(void) deleteCredentials;

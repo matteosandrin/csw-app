@@ -22,11 +22,21 @@
     [self setupUI];
     [self refresh];
     
+    
+    
 }
 
 -(void) setupUI{
     
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    [formatter setDateFormat:@"MMMM d"];
+//    
+//    NSString *stringFromDate = [formatter stringFromDate:[NSDate date]];
+//    
+//    self.title = [NSString stringWithFormat:@"Meals - %@",[stringFromDate capitalizedString]];
+
     self.title = @"Meals";
+    
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor cloudsColor],
                               NSFontAttributeName: [UIFont sanFranciscoFontWithSize:20]

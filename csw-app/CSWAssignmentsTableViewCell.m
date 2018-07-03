@@ -43,6 +43,27 @@
     
 }
 
+-(void) setupWithSingleClassData:(NSDictionary *)cellData{
+    
+    NSString *htmlString = [NSString stringWithFormat:@"Due: %@",(NSString*)cellData[@"DueDate"]];
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:htmlString attributes:nil];
+    [attributedString addAttribute:NSFontAttributeName value:[UIFont sanFranciscoFontWithSize:15] range:NSMakeRange(0, attributedString.length)];
+    [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor cloudsColor] range:NSMakeRange(0, attributedString.length)];
+    self.contentTextView.attributedText = attributedString;
+    self.contentTextView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    
+    
+    htmlString = (NSString*)cellData[@"AssignmentDescription"];
+    
+    attributedString = [[NSMutableAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType} documentAttributes:nil error:nil];
+    [attributedString addAttribute:NSFontAttributeName value:[UIFont sanFranciscoFontWithSize:15] range:NSMakeRange(0, attributedString.length)];
+    [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor cloudsColor] range:NSMakeRange(0, attributedString.length)];
+    
+    self.titleLabel.text = [attributedString string];
+    
+}
+
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
 {
     if (highlighted) {

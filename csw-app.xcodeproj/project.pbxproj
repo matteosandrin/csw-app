@@ -18,6 +18,9 @@
 		EC1AD4561C28D52F0000157F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC1AD4551C28D52F0000157F /* Main.storyboard */; };
 		EC1ECAE31BE040F7002E4BA4 /* CSWAssignmentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC1ECAE21BE040F7002E4BA4 /* CSWAssignmentsTableViewCell.xib */; };
 		EC1ECAE61BE0410A002E4BA4 /* CSWAssignmentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1ECAE51BE0410A002E4BA4 /* CSWAssignmentsTableViewCell.m */; };
+		EC2C29F51CC6CE2D004CDCE5 /* CSWGradeBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2C29F41CC6CE2D004CDCE5 /* CSWGradeBookViewController.m */; };
+		EC2C29F81CC6D3B1004CDCE5 /* CSWGradeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC2C29F71CC6D3B1004CDCE5 /* CSWGradeCell.xib */; };
+		EC2C29FB1CC6D3DA004CDCE5 /* CSWGradeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2C29FA1CC6D3DA004CDCE5 /* CSWGradeTableViewCell.m */; };
 		EC400FE11BD89D0000ECC31B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC400FE01BD89D0000ECC31B /* main.m */; };
 		EC400FE41BD89D0000ECC31B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC400FE31BD89D0000ECC31B /* AppDelegate.m */; };
 		EC400FEC1BD89D0000ECC31B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC400FEB1BD89D0000ECC31B /* Assets.xcassets */; };
@@ -33,6 +36,7 @@
 		EC4010281BD89DCC00ECC31B /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = EC40101E1BD89DCC00ECC31B /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EC4010291BD89DCC00ECC31B /* login_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC40101F1BD89DCC00ECC31B /* login_icon@2x.png */; };
 		EC40102A1BD89DCC00ECC31B /* SF-UI-Display-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC4010201BD89DCC00ECC31B /* SF-UI-Display-Light.ttf */; };
+		EC6252571CC9625900055655 /* CSWClassAssignmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6252561CC9625900055655 /* CSWClassAssignmentViewController.m */; };
 		EC716E1C1C01001F00D12519 /* CSWMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC716E1B1C01001F00D12519 /* CSWMainTabBarViewController.m */; };
 		EC77D15D1BDC3D8F00561959 /* scheduleTabButtonSelected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC77D15B1BDC3D8F00561959 /* scheduleTabButtonSelected@3x.png */; };
 		EC77D15E1BDC3D8F00561959 /* scheduleTabButtonNormal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC77D15C1BDC3D8F00561959 /* scheduleTabButtonNormal@3x.png */; };
@@ -109,6 +113,11 @@
 		EC1ECAE21BE040F7002E4BA4 /* CSWAssignmentsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSWAssignmentsTableViewCell.xib; sourceTree = "<group>"; };
 		EC1ECAE41BE0410A002E4BA4 /* CSWAssignmentsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWAssignmentsTableViewCell.h; sourceTree = "<group>"; };
 		EC1ECAE51BE0410A002E4BA4 /* CSWAssignmentsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWAssignmentsTableViewCell.m; sourceTree = "<group>"; };
+		EC2C29F31CC6CE2D004CDCE5 /* CSWGradeBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWGradeBookViewController.h; sourceTree = "<group>"; };
+		EC2C29F41CC6CE2D004CDCE5 /* CSWGradeBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWGradeBookViewController.m; sourceTree = "<group>"; };
+		EC2C29F71CC6D3B1004CDCE5 /* CSWGradeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSWGradeCell.xib; sourceTree = "<group>"; };
+		EC2C29F91CC6D3DA004CDCE5 /* CSWGradeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWGradeTableViewCell.h; sourceTree = "<group>"; };
+		EC2C29FA1CC6D3DA004CDCE5 /* CSWGradeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWGradeTableViewCell.m; sourceTree = "<group>"; };
 		EC400FDC1BD89D0000ECC31B /* csw-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "csw-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC400FE01BD89D0000ECC31B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EC400FE21BD89D0000ECC31B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -137,6 +146,8 @@
 		EC40101E1BD89DCC00ECC31B /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		EC40101F1BD89DCC00ECC31B /* login_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_icon@2x.png"; sourceTree = "<group>"; };
 		EC4010201BD89DCC00ECC31B /* SF-UI-Display-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Light.ttf"; sourceTree = "<group>"; };
+		EC6252551CC9625900055655 /* CSWClassAssignmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWClassAssignmentViewController.h; sourceTree = "<group>"; };
+		EC6252561CC9625900055655 /* CSWClassAssignmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWClassAssignmentViewController.m; sourceTree = "<group>"; };
 		EC716E1A1C01001F00D12519 /* CSWMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWMainTabBarViewController.h; sourceTree = "<group>"; };
 		EC716E1B1C01001F00D12519 /* CSWMainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWMainTabBarViewController.m; sourceTree = "<group>"; };
 		EC77D15B1BDC3D8F00561959 /* scheduleTabButtonSelected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scheduleTabButtonSelected@3x.png"; sourceTree = "<group>"; };
@@ -304,6 +315,25 @@
 			name = "Report Cell";
 			sourceTree = "<group>";
 		};
+		EC2C29F21CC6CDD3004CDCE5 /* Grades */ = {
+			isa = PBXGroup;
+			children = (
+				EC2C29F31CC6CE2D004CDCE5 /* CSWGradeBookViewController.h */,
+				EC2C29F41CC6CE2D004CDCE5 /* CSWGradeBookViewController.m */,
+			);
+			name = Grades;
+			sourceTree = "<group>";
+		};
+		EC2C29F61CC6D301004CDCE5 /* Grade Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EC2C29F71CC6D3B1004CDCE5 /* CSWGradeCell.xib */,
+				EC2C29F91CC6D3DA004CDCE5 /* CSWGradeTableViewCell.h */,
+				EC2C29FA1CC6D3DA004CDCE5 /* CSWGradeTableViewCell.m */,
+			);
+			name = "Grade Cell";
+			sourceTree = "<group>";
+		};
 		EC400FD31BD89CFF00ECC31B = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +429,7 @@
 				EC000ADC1BFBBCDD00DEF4D0 /* Roster Cell */,
 				ECAD86351C02C3F1003BFCF4 /* Search Cell */,
 				EC1AD44F1C28C71A0000157F /* Report Cell */,
+				EC2C29F61CC6D301004CDCE5 /* Grade Cell */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -428,6 +459,15 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
+		EC6252581CC9626100055655 /* Class Assignments */ = {
+			isa = PBXGroup;
+			children = (
+				EC6252551CC9625900055655 /* CSWClassAssignmentViewController.h */,
+				EC6252561CC9625900055655 /* CSWClassAssignmentViewController.m */,
+			);
+			name = "Class Assignments";
+			sourceTree = "<group>";
+		};
 		EC716E161C00FF9800D12519 /* Intro */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,6 +493,8 @@
 				EC40101C1BD89DCC00ECC31B /* CSWScheduleViewController.m */,
 				ECADDDCC1BEF089100B1235C /* CSWClassViewController.h */,
 				ECADDDCD1BEF089100B1235C /* CSWClassViewController.m */,
+				EC6252581CC9626100055655 /* Class Assignments */,
+				EC2C29F21CC6CDD3004CDCE5 /* Grades */,
 			);
 			name = Schedule;
 			sourceTree = "<group>";
@@ -639,7 +681,7 @@
 						DevelopmentTeam = 83BP6G8L8M;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -708,6 +750,7 @@
 				ECFAD2631C3EED3A001AE805 /* reportsTabButtonNormal@3x.png in Resources */,
 				ECD9785C1C2C3A75005EAD7B /* SVWebViewControllerActivityChrome@2x.png in Resources */,
 				EC1AD4561C28D52F0000157F /* Main.storyboard in Resources */,
+				EC2C29F81CC6D3B1004CDCE5 /* CSWGradeCell.xib in Resources */,
 				ECD978591C2C3A75005EAD7B /* SVWebViewControllerActivityChrome-iPad.png in Resources */,
 				EC400FEC1BD89D0000ECC31B /* Assets.xcassets in Resources */,
 				ECD978601C2C3A75005EAD7B /* SVWebViewControllerActivitySafari@2x.png in Resources */,
@@ -785,8 +828,10 @@
 				EC400FE41BD89D0000ECC31B /* AppDelegate.m in Sources */,
 				EC77D1651BDC445C00561959 /* CSWAssignmentsViewController.m in Sources */,
 				EC4010261BD89DCC00ECC31B /* CSWScheduleTableViewCell.m in Sources */,
+				EC2C29FB1CC6D3DA004CDCE5 /* CSWGradeTableViewCell.m in Sources */,
 				ECD5D7911C02A5DA003059BF /* CSWDirectorySearchViewController.m in Sources */,
 				EC400FE11BD89D0000ECC31B /* main.m in Sources */,
+				EC2C29F51CC6CE2D004CDCE5 /* CSWGradeBookViewController.m in Sources */,
 				ECD978611C2C3A75005EAD7B /* SVWebViewControllerActivity.m in Sources */,
 				EC7A2F411C076E940043CF6F /* CSWDetailSearchViewController.m in Sources */,
 				ECADDDCE1BEF089100B1235C /* CSWClassViewController.m in Sources */,
@@ -799,6 +844,7 @@
 				EC000AD81BFBBC9B00DEF4D0 /* CSWRosterTableViewCell.m in Sources */,
 				EC8EF8801BFA805400516078 /* CSWRosterViewController.m in Sources */,
 				EC1AD44E1C28C68E0000157F /* CSWReportCardsViewController.m in Sources */,
+				EC6252571CC9625900055655 /* CSWClassAssignmentViewController.m in Sources */,
 				ECD978561C2C3A75005EAD7B /* SVModalWebViewController.m in Sources */,
 				EC4010221BD89DCC00ECC31B /* CSWIntroViewController.m in Sources */,
 				ECBA7A041CC2B8CA00BD86F5 /* CSWMealsViewController.m in Sources */,

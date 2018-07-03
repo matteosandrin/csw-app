@@ -12,6 +12,7 @@
 @interface CSWAssignmentsTableViewCell : UITableViewCell
 
 -(void) setupWithData:(NSDictionary*)cellData;
+-(void) setupWithSingleClassData:(NSDictionary*)cellData;
 
 @property (weak, nonatomic) IBOutlet UIView *baseView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

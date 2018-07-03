@@ -48,6 +48,7 @@
                                 [alert show];
                             }
                             [self performSelector:@selector(pushToMain) withObject:nil afterDelay:0.1];
+                            
 //                         }
                          
                      }];

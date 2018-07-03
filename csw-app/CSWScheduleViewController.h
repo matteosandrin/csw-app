@@ -23,7 +23,8 @@
 
 - (IBAction)daySelectButtonTapped:(id)sender;
 
-@property (nonatomic,strong) NSArray *schedule;
+@property (nonatomic,strong) NSMutableArray *schedule;
+//@property (nonatomic,strong) NSArray *gradesInfo;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *daySelectBarButton;
 
 @end

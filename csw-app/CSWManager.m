@@ -26,7 +26,7 @@
     if (self == [super init]) {
         
         manager = [AFHTTPRequestOperationManager manager];
-        [self getUserInfo];
+//        [self getUserInfo];
 //        [self deleteCredentials];
         NSLog(@"init manager");
         
@@ -98,6 +98,7 @@
                   KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"pass_keychain" accessGroup:nil];
                   [keychainItem setObject:username forKey:(id)CFBridgingRelease(kSecAttrAccount)];
                   [keychainItem setObject:password forKey:(id)CFBridgingRelease(kSecValueData)];
+                  [self getUserInfo];
                   
               }else{
                   NSLog(@"login failed");
@@ -153,7 +154,7 @@
     [self.manager GET:url
            parameters:nil
               success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-                  self.userInfo = (NSDictionary*)responseObject;
+                  self.userInfo = (NSDictionary*)responseObject[@"UserInfo"];
                   NSLog(@"userinfo: %@",self.userInfo);
               } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
                   [self getUserInfo];
@@ -205,9 +206,7 @@
     [formatter setDateFormat:@"MM/dd/yyyy"];
     
     NSString *stringFromDate = [formatter stringFromDate:dueDate];
-#warning just for testing purposes
-//    NSString *stringFromDate = [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:1449674170]];
-    
+
     NSDictionary *params = @{
                              @"persona": @"2",
                              @"format" : @"json",
@@ -350,7 +349,7 @@
                  
                  NSLog(@"success");
                  NSArray *result = (NSArray*)responseObject;
-//                 NSLog(@"roster: %@",responseObject);
+                 NSLog(@"roster: %@",responseObject);
                  if (completionBlock) {
                      completionBlock(result);
                  }
@@ -595,6 +594,141 @@
               }];
     
 }
+
+-(void) getModStructureForUserId:(NSString *)userId andCompletionBlock:(ArrayResponseBlock)completionBlock{
+    
+    NSString *schoolYearLabel;
+    NSCalendar* cal = [NSCalendar currentCalendar];
+    NSDateComponents* comp = [cal components:(NSCalendarUnitMonth | NSCalendarUnitYear) fromDate:[NSDate date]];
+    
+    if (comp.month > 7) {
+        schoolYearLabel = [NSString stringWithFormat:@"%ld+-+%ld",comp.year,comp.year+1];
+    }else if (comp.month <= 7) {
+        schoolYearLabel = [NSString stringWithFormat:@"%ld+-+%ld",comp.year-1,comp.year];
+    }
+    NSLog(@"user: %@",userId);
+    
+    NSString *url = [NSString stringWithFormat:@"%@/api/DataDirect/StudentGroupTermList/?personaId=2&schoolYearLabel=%@&studentUserId=%@",kBaseLink,schoolYearLabel,userId];
+    
+//    NSDictionary *params = @{
+//        @"studentUserId" : userId,
+//        @"personaId" : @"2",
+//        @"schoolYearLabel" : schoolYearLabel
+//        
+//    };
+    
+    
+    [manager GET:url
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             NSLog(@"success: %@",operation.request.URL);
+             NSArray *result = (NSArray*)responseObject;
+//             NSLog(@"%@",responseObject);
+             completionBlock(result);
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"failure: %@",error.localizedDescription);
+             if (completionBlock) {
+                 completionBlock(@[error.localizedDescription]);
+             }
+         }];
+    
+}
+
+-(void) getGradeInfoForUserId:(NSString *)userId andModId:(NSString *)modId andCompletionBlock:(ArrayResponseBlock)completionBlock {
+    
+    NSString *url = [NSString stringWithFormat:@"%@/api/datadirect/ParentStudentUserAcademicGroupsGet",kBaseLink];
+    
+    NSDictionary *params = @{
+                             @"userId" : userId,
+                             @"persona" : @"2",
+                             @"memberLevel" : @"3",
+                             @"durationList" : modId
+                             };
+    
+    [manager GET:url
+      parameters:params
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             NSLog(@"success");
+             NSArray *result = (NSArray*)responseObject;
+//             NSLog(@"%@",responseObject);
+             completionBlock(result);
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"failure: %@ %@",error.localizedDescription,operation.request.URL);
+             if (completionBlock) {
+                 completionBlock(@[error.localizedDescription]);
+             }
+         }];
+    
+}
+
+-(void) getGradeBookForUserId:(NSString *)userId andSectionId:(NSString *)sectionId andPeriodId:(NSString *)periodId andCompletionBlock:(ArrayResponseBlock)completionBlock{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/api/datadirect/GradeBookPerformanceAssignmentStudentList/",kBaseLink];
+    
+    NSDictionary *params = @{
+                             @"studentUserId" : userId,
+                             @"markingPeriodId": periodId,
+                             @"sectionId": sectionId
+                             };
+    
+    [manager GET:url
+      parameters:params
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             NSLog(@"success");
+             NSArray *result = (NSArray*)responseObject;
+             NSLog(@"%@",responseObject);
+             completionBlock(result);
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"failure: %@ %@",error.localizedDescription,operation.request.URL);
+             if (completionBlock) {
+                 completionBlock(@[error.localizedDescription]);
+             }
+         }];
+    
+}
+
+-(void) getAssignmentsSummaryForClass:(NSString*)sectionId onlyActive:(BOOL)isOnlyActive andCompletionBlock:(ArrayResponseBlock)completionBlock {
+    
+    NSString *url = [NSString stringWithFormat:@"%@/api/assignment/forsection/%@/",kBaseLink,sectionId];
+    
+//    NSLog(@"url: %@",url);
+    
+    NSDictionary *params = @{
+                             @"format" : @"json",
+                             @"dateSort": [NSString stringWithFormat:@"%d",isOnlyActive],
+                             @"personaId": @"2"
+                             };
+    
+    [manager GET:url
+      parameters:params
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             NSLog(@"success");
+             NSArray *result = (NSArray*)responseObject;
+//             NSLog(@"%@",responseObject);
+             NSLog(@"curl: %@",operation.request.URL);
+             completionBlock(result);
+             
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"failure: %@ %@",error.localizedDescription,operation.request.URL);
+             if (completionBlock) {
+                 completionBlock(@[error.localizedDescription]);
+             }
+         }];
+    
+}
+
+
 
 
 @end

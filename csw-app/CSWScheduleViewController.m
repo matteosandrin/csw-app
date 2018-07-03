@@ -1,4 +1,4 @@
-//
+    //
 //  CSWScheduleViewController.m
 //  csw-app
 //
@@ -19,10 +19,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    schedule = [NSArray array];
+    schedule = [NSMutableArray array];
+//    gradesInfo = [NSArray array];
     [self setupUI];
     [self.tableView setContentOffset:CGPointMake(0, -self.refreshControl.frame.size.height) animated:YES];
     [self refresh];
+    
+    
     
 }
 
@@ -36,9 +39,10 @@
          [self setRefreshControlTitle:@"Pull to Refresh"];
         
          if (result.count > 1 || result.count == 0) {
-             schedule = result;
+             schedule = [NSMutableArray arrayWithArray:result];
              [self.tableView reloadData];
              self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 0)];
+             [self getModStructure];
              
          }
          
@@ -78,6 +82,54 @@
         
     }];
     
+}
+
+-(void) getModStructure {
+    CSWManager *manager = [CSWManager sharedManager];
+    NSString *userId = manager.userInfo[@"UserId"];
+    
+    if (userId == nil) {
+        [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(getModStructure) userInfo:nil repeats:false];
+        return;
+    }
+    
+    [manager getModStructureForUserId:userId andCompletionBlock:^(NSArray *array) {
+        if (array.count == 1 && [array[0] isKindOfClass:[NSString class]]) {
+            NSLog(@"error: %@",array[0]);
+        }else{
+            for (NSDictionary *mod in array) {
+                if ([mod[@"OfferingType"] intValue] == 1 &&  [mod[@"CurrentInd"] intValue] == 1) {
+                    [manager getGradeInfoForUserId:userId andModId:mod[@"DurationId"] andCompletionBlock:^(NSArray *array2) {
+                        if ([array2[0] isKindOfClass:[NSString class]]) {
+                            NSLog(@"error: %@",array2[0]);
+                        } else {
+                            NSLog(@"what");
+                            for (int classIndex = 0; classIndex < schedule.count; classIndex++) {
+                                NSDictionary *class = schedule[classIndex];
+                                for (int gradeIndex = 0; gradeIndex < array2.count; gradeIndex++) {
+                                    NSDictionary *grade = array2[gradeIndex];
+                                    
+                                    NSNumber *class_id = (NSNumber*)class[@"SectionId"];
+                                    NSNumber *grade_id = (NSNumber*)grade[@"sectionid"];
+                                    
+                                    if ([class_id intValue] == [grade_id intValue]) {
+                                        NSLog(@"cumgrade: %@",grade[@"cumgrade"]);
+                                        NSMutableDictionary *newClass = [NSMutableDictionary dictionaryWithDictionary:class];
+                                        newClass[@"cumgrade"] = grade[@"cumgrade"];
+                                        newClass[@"markingperiodid"] = grade[@"markingperiodid"];
+                                        schedule[classIndex] = newClass;
+                                        NSLog(@"yay");
+                                        
+                                    }
+                                }
+                            }
+                            NSLog(@"after: %@",schedule);
+                        }
+                    }];
+                }
+            }
+        }
+    }];
 }
 
 -(void) setupUI{
@@ -165,7 +217,7 @@
     int currentRow = 0;
     int stampDiff = startStamp;
     
-    for (int i = 0; i <= 30; i++) {
+    for (int i = -30; i <= 90; i++) {
         
         int stamp = startStamp + i*24*60*60;
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:stamp];
@@ -176,7 +228,7 @@
         dates[stringFromDate] = date;
         if ( fabs(stamp - currentDate.timeIntervalSince1970) < stampDiff ) {
             stampDiff = fabs(stamp - currentDate.timeIntervalSince1970);
-            currentRow = i;
+            currentRow = i+30;
         }
         
     }
